@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    @apply bg-sand-50 text-forest-950;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  }
+  ::selection {
+    @apply bg-forest-200 text-forest-900;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply btn bg-forest-600 text-white hover:bg-forest-700 focus:ring-forest-500 shadow-sm hover:shadow-md active:scale-[0.98];
+  }
+  .btn-secondary {
+    @apply btn bg-[#f7f6f1] text-forest-700 border border-forest-200 hover:bg-forest-50 focus:ring-forest-500;
+  }
+  .btn-ghost {
+    @apply btn text-forest-700 hover:bg-forest-50 focus:ring-forest-400;
+  }
+  .btn-danger {
+    @apply btn bg-red-500 text-white hover:bg-red-600 focus:ring-red-400;
+  }
+  .card {
+    @apply rounded-2xl bg-[#f7f6f1] border border-sand-300/60 shadow-sm;
+  }
+  .input {
+    @apply w-full rounded-xl border border-sand-300 bg-[#f7f6f1] px-4 py-2.5 text-sm text-forest-950 placeholder:text-sand-400 focus:border-forest-500 focus:ring-2 focus:ring-forest-200 focus:outline-none transition-all;
+  }
+  .label {
+    @apply block text-sm font-medium text-forest-800 mb-1.5;
+  }
+  .badge {
+    @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium;
+  }
+  .badge-forest { @apply badge bg-forest-100 text-forest-700; }
+  .badge-earth { @apply badge bg-earth-100 text-earth-700; }
+  .badge-river { @apply badge bg-river-100 text-river-700; }
+  .badge-red { @apply badge bg-red-100 text-red-700; }
+  .badge-amber { @apply badge bg-amber-100 text-amber-700; }
+  .badge-sand { @apply badge bg-sand-200 text-sand-800; }
+
+  .section-title {
+    @apply font-display text-2xl font-bold text-forest-900 sm:text-3xl;
+  }
+  .stat-value {
+    @apply font-display text-3xl font-extrabold text-forest-900 sm:text-4xl;
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+  .glass {
+    @apply bg-[#f7f6f1]/90 backdrop-blur-md border border-sand-300/50;
+  }
+  .gradient-forest {
+    background: linear-gradient(135deg, #15803d 0%, #22c55e 100%);
+  }
+  .gradient-hero {
+    background: linear-gradient(135deg, #052e16 0%, #14532d 40%, #166534 80%, #16a34a 100%);
+  }
+  .gradient-earth {
+    background: linear-gradient(135deg, #713527 0%, #d97742 100%);
+  }
+  .shimmer-bg {
+    background: linear-gradient(90deg, #f5f3ea 0%, #ebe6d3 50%, #f5f3ea 100%);
+    background-size: 200% 100%;
+  }
+}
+
+/* Leaflet overrides */
+.leaflet-container {
+  font-family: 'Inter', sans-serif;
+  border-radius: 1rem;
+}
+.leaflet-popup-content-wrapper {
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 24px rgba(20, 83, 45, 0.15);
+}
+.leaflet-popup-content {
+  margin: 0.75rem 1rem;
+  font-size: 0.875rem;
+}
