@@ -27,7 +27,7 @@ const ROLES = [
 
 export function AboutPage() {
   return (
-    <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-8 animate-fade-in">
+    <div className="w-full px-4 sm:px-6 lg:px-8 py-8 animate-fade-in">
       <PageHeader
         title="À propos de KinshasaEco"
         subtitle="La plateforme numérique écologique de la ville de Kinshasa"
@@ -118,7 +118,7 @@ export function AboutPage() {
       {/* Chiffres clés */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
         {[
-          { value: '35', label: 'Communes couvertes' },
+          { value: '24', label: 'Communes couvertes' },
           { value: '5', label: 'Rôles utilisateurs' },
           { value: '4', label: 'Modules fonctionnels' },
           { value: '100%', label: 'Open & collaboratif' },

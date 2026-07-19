@@ -72,7 +72,7 @@ export function DechetsPage() {
   const activeTournees = tournees.filter((t) => t.status === 'en_cours' || t.status === 'planifiee').length;
 
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 animate-fade-in">
+    <div className="w-full px-4 sm:px-6 lg:px-8 py-8 animate-fade-in">
       <PageHeader
         title="Gestion des déchets"
         subtitle="Points de dépôt, tournées de collecte et équipes de collecteurs"

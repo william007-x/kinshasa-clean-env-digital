@@ -85,7 +85,7 @@ export function CartePage() {
   });
 
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 animate-fade-in">
+    <div className="w-full px-4 sm:px-6 lg:px-8 py-8 animate-fade-in">
       <PageHeader
         title="Carte interactive"
         subtitle="Visualisez les incidents environnementaux et les points de collecte de Kinshasa"

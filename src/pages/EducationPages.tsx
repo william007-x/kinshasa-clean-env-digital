@@ -38,7 +38,7 @@ export function EducationPage() {
   const categories = Object.entries(ARTICLE_CATEGORY_LABELS) as [ArticleCategory, string][];
 
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 animate-fade-in">
+    <div className="w-full px-4 sm:px-6 lg:px-8 py-8 animate-fade-in">
       <PageHeader title="Centre éducatif" subtitle="Articles, guides et ressources pour comprendre les enjeux environnementaux de Kinshasa" />
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
@@ -194,7 +194,7 @@ export function CampagnesPage() {
   const past = campagnes.filter((c) => c.status === 'terminee');
 
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 animate-fade-in">
+    <div className="w-full px-4 sm:px-6 lg:px-8 py-8 animate-fade-in">
       <PageHeader title="Campagnes de sensibilisation" subtitle="Initiatives et mobilisations environnementales à Kinshasa" />
 
       <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
@@ -264,7 +264,7 @@ export function ActualitesPage() {
   }, []);
 
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 animate-fade-in">
+    <div className="w-full px-4 sm:px-6 lg:px-8 py-8 animate-fade-in">
       <PageHeader title="Actualités" subtitle="Dernières nouvelles environnementales de Kinshasa" />
       {loading ? (
         <LoadingState />

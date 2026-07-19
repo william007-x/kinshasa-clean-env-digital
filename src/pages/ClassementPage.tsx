@@ -76,7 +76,7 @@ export function ClassementPage() {
   const restCitoyens = profiles.slice(3);
 
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 animate-fade-in">
+    <div className="w-full px-4 sm:px-6 lg:px-8 py-8 animate-fade-in">
       <PageHeader title="Classement" subtitle="Les éco-citoyens et communes les plus actifs de Kinshasa" />
 
       {/* Tabs */}

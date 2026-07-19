@@ -56,7 +56,7 @@ export function LandingPage() {
       {/* Hero Section */}
       <section className="relative overflow-hidden gradient-hero text-white">
         <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(34,197,94,0.3) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(217,119,66,0.2) 0%, transparent 50%)' }} />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+        <div className="relative w-full px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in-up">
               <div className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-sm px-4 py-1.5 text-sm font-medium mb-6">
@@ -107,7 +107,7 @@ export function LandingPage() {
       </section>
 
       {/* Features Section */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+      <section className="w-full px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center mb-12">
           <h2 className="section-title">Une plateforme complète au service de l'environnement</h2>
           <p className="mt-3 text-forest-500 max-w-2xl mx-auto">
@@ -138,7 +138,7 @@ export function LandingPage() {
 
       {/* Recent signalements */}
       <section className="bg-[#f7f6f1] border-y border-sand-300 py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-8">
             <div>
               <h2 className="section-title">Derniers signalements</h2>
@@ -186,7 +186,7 @@ export function LandingPage() {
       </section>
 
       {/* Top communes + Education preview */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+      <section className="w-full px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid lg:grid-cols-2 gap-10">
           {/* Top communes */}
           <div>
@@ -257,7 +257,7 @@ export function LandingPage() {
       </section>
 
       {/* Call to action */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-16">
+      <section className="w-full px-4 sm:px-6 lg:px-8 pb-16">
         <div className="relative overflow-hidden rounded-3xl gradient-hero text-white p-10 sm:p-14 text-center">
           <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(circle at 30% 70%, rgba(34,197,94,0.4) 0%, transparent 50%)' }} />
           <div className="relative">

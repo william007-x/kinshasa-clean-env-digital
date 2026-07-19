@@ -82,7 +82,7 @@ export function Layout({ children }: { children: ReactNode }) {
     <div className="min-h-screen flex flex-col bg-sand-50">
       {/* Header */}
       <header className="sticky top-0 z-40 border-b border-sand-200/60 glass">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2.5 group">
@@ -279,7 +279,7 @@ export function Layout({ children }: { children: ReactNode }) {
 
       {/* Footer */}
       <footer className="border-t border-sand-200 bg-forest-950 text-sand-100">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+        <div className="w-full px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             <div>
               <div className="flex items-center gap-2.5 mb-3">

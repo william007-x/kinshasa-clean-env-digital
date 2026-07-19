@@ -11,6 +11,7 @@
     "typecheck": "tsc --noEmit -p tsconfig.app.json"
   },
   "dependencies": {
+    "@studio-freight/react-lenis": "^0.0.47",
     "@supabase/supabase-js": "^2.57.4",
     "date-fns": "^4.4.0",
     "leaflet": "^1.9.4",

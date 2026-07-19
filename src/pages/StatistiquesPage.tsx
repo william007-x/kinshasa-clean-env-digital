@@ -97,13 +97,13 @@ export function StatistiquesPage() {
     a.click();
   }
 
-  if (loading) return <div className="mx-auto max-w-7xl px-4 py-8"><LoadingState /></div>;
+  if (loading) return <div className="w-full px-4 py-8"><LoadingState /></div>;
 
   const resolvedCount = filteredByPeriod.filter((s) => s.status === 'resolu').length;
   const resolutionRate = filteredByPeriod.length > 0 ? Math.round((resolvedCount / filteredByPeriod.length) * 100) : 0;
 
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 animate-fade-in">
+    <div className="w-full px-4 sm:px-6 lg:px-8 py-8 animate-fade-in">
       <PageHeader
         title="Statistiques"
         subtitle="Indicateurs environnementaux de la ville de Kinshasa"

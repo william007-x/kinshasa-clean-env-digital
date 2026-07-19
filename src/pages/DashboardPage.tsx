@@ -93,7 +93,7 @@ export function DashboardPage() {
     return days;
   }, [allSignalements]);
 
-  if (loading) return <div className="mx-auto max-w-7xl px-4 py-8"><LoadingState /></div>;
+  if (loading) return <div className="w-full px-4 py-8"><LoadingState /></div>;
 
   const currentLevel = getLevelFromPoints(profile?.points ?? 0);
   const nextLevel = currentLevel === 'debutant' ? 'actif' : currentLevel === 'actif' ? 'militant' : currentLevel === 'militant' ? 'ambassadeur' : null;
@@ -101,7 +101,7 @@ export function DashboardPage() {
   const levelProgress = nextThreshold ? ((profile?.points ?? 0) / nextThreshold) * 100 : 100;
 
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 animate-fade-in">
+    <div className="w-full px-4 sm:px-6 lg:px-8 py-8 animate-fade-in">
       <PageHeader
         title={`Bonjour, ${profile?.full_name?.split(' ')[0] ?? 'Citoyen'}`}
         subtitle={`Voici un aperçu de l'activité environnementale — ${LEVEL_LABELS[currentLevel]}`}

@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Force l'accélération matérielle (GPU) sur les conteneurs principaux pour éviter les saccades */
+body, main {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
