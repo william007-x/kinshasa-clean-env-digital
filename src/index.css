@@ -3,21 +3,18 @@
 @tailwind utilities;
 
 html {
-  scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
 }
 
-/* Force l'accélération matérielle (GPU) sur les conteneurs principaux pour éviter les saccades */
-body, main {
-  will-change: transform;
-  transform: translateZ(0);
+body {
+  overflow-x: hidden;
 }
 
 @layer base {
   html {
-    scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
   }
   body {
@@ -109,4 +106,19 @@ body, main {
 .leaflet-popup-content {
   margin: 0.75rem 1rem;
   font-size: 0.875rem;
+}
+
+/* --- CORRECTIF ANTI-GLITCH ET ACCÉLÉRATION MATÉRIELLE --- */
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+body, main, section, .card {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-perspective: 1000;
+  perspective: 1000;
+  will-change: transform;
 }
