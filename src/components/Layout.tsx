@@ -1,7 +1,8 @@
 import { type ReactNode, useState, useEffect } from 'react';
+import logoKineco from '../assets/logo-kineco.png';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {
-  Leaf, Menu, X, Bell, User as UserIcon, LogOut, ChevronDown,
+  Menu, X, Bell, User as UserIcon, LogOut, ChevronDown,
   LayoutDashboard, MapPin, Trash2, BookOpen, BarChart3, Settings,
   Shield, Trophy, Home, FileText, HelpCircle, Users, Info,
 } from 'lucide-react';
@@ -85,10 +86,14 @@ export function Layout({ children }: { children: ReactNode }) {
         <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-2.5 group">
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl gradient-forest text-white shadow-sm group-hover:shadow-md transition-shadow">
-                <Leaf className="h-5 w-5" />
-              </div>
+              <Link to="/" className="flex items-center gap-2.5 group">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl overflow-hidden bg-white shadow-sm group-hover:shadow-md transition-shadow">
+                  <img 
+                    src={logoKineco} 
+                    alt="KinshasaEco Logo" 
+                    className="h-full w-full object-cover transform group-hover:scale-105 transition-transform duration-200" 
+                  />
+                </div>
               <div className="flex flex-col leading-none">
                 <span className="font-display text-lg font-extrabold text-forest-800">KinshasaEco</span>
                 <span className="text-[10px] font-medium text-forest-500 tracking-wide">PLATEFORME ÉCOLOGIQUE</span>
@@ -283,8 +288,8 @@ export function Layout({ children }: { children: ReactNode }) {
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             <div>
               <div className="flex items-center gap-2.5 mb-3">
-                <div className="flex h-9 w-9 items-center justify-center rounded-xl gradient-forest">
-                  <Leaf className="h-5 w-5 text-white" />
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl overflow-hidden bg-white">
+                  <img src={logoKineco} alt="KinshasaEco Logo" className="h-full w-full object-cover" />
                 </div>
                 <span className="font-display text-lg font-extrabold text-white">KinshasaEco</span>
               </div>
