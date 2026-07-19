@@ -146,7 +146,7 @@ export function Layout({ children }: { children: ReactNode }) {
                       )}
                     </button>
                     {notifOpen && (
-                      <div className="absolute -right-20 sm:right-0 mt-2 w-80 sm:w-80 rounded-2xl bg-[#f7f6f1] shadow-xl border border-sand-300 animate-slide-in-right overflow-hidden">
+                      <div className="absolute right-0 mt-2 w-80 rounded-2xl bg-[#f7f6f1] shadow-xl border border-sand-300 animate-slide-in-right overflow-hidden">
                         <div className="px-4 py-3 border-b border-sand-200">
                           <p className="font-display font-semibold text-forest-900">Notifications</p>
                         </div>
