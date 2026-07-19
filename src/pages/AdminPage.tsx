@@ -93,7 +93,7 @@ export function AdminPage() {
       <div className="flex gap-1 mb-6 bg-sand-100 rounded-xl p-1 overflow-x-auto scrollbar-hide">
         {tabs.map((t) => (
           <button key={t.key} onClick={() => setTab(t.key)}
-            className={classNames('flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium whitespace-nowrap transition-all',
+            className={classNames('flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors',
               tab === t.key ? 'bg-[#f7f6f1] text-forest-700 shadow-sm' : 'text-forest-500 hover:text-forest-700')}>
             <t.icon className="h-4 w-4" />
             {t.label}

@@ -77,7 +77,7 @@ export function EducationPage() {
       ) : (
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filtered.map((a) => (
-            <Link key={a.id} to={`/education/${a.slug}`} className="card overflow-hidden hover:shadow-md transition-all hover:-translate-y-0.5 group">
+            <Link key={a.id} to={`/education/${a.slug}`} className="card overflow-hidden hover:shadow-md transition-transform transition-shadow hover:-translate-y-0.5 group">
               {a.image_url ? (
                 <div className="aspect-video overflow-hidden bg-sand-100">
                   <img src={a.image_url} alt={a.title} className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
@@ -214,7 +214,7 @@ export function CampagnesPage() {
             const statusColors = { a_venir: 'badge-amber', active: 'badge-forest', terminee: 'badge-sand', annulee: 'badge-red' };
             const daysLeft = Math.ceil((new Date(c.end_date).getTime() - Date.now()) / (1000 * 60 * 60 * 24));
             return (
-              <Card key={c.id} className="overflow-hidden hover:shadow-md transition-all">
+              <Card key={c.id} className="overflow-hidden hover:shadow-md transition-shadow">
                 {c.image_url ? (
                   <div className="aspect-video overflow-hidden bg-sand-100">
                     <img src={c.image_url} alt={c.title} className="h-full w-full object-cover" />
@@ -273,7 +273,7 @@ export function ActualitesPage() {
       ) : (
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {articles.map((a) => (
-            <Link key={a.id} to={`/education/${a.slug}`} className="card overflow-hidden hover:shadow-md transition-all group">
+            <Link key={a.id} to={`/education/${a.slug}`} className="card overflow-hidden hover:shadow-md transition-transform transition-shadow group">
               {a.image_url && (
                 <div className="aspect-video overflow-hidden bg-sand-100">
                   <img src={a.image_url} alt={a.title} className="h-full w-full object-cover group-hover:scale-105 transition-transform" />

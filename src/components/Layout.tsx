@@ -58,7 +58,7 @@ export function Layout({ children }: { children: ReactNode }) {
         setUnreadCount(data.filter((n) => !n.read).length);
       }
     })();
-  }, [user, location.pathname]);
+  }, [user]);
 
   const isAdmin = profile?.role === 'admin';
   const visibleNavLinks = NAV_LINKS.filter((l) => {
@@ -104,7 +104,7 @@ export function Layout({ children }: { children: ReactNode }) {
                     key={link.to}
                     to={link.to}
                     className={classNames(
-                      'px-3.5 py-2 rounded-lg text-sm font-medium transition-all',
+                      'px-3.5 py-2 rounded-lg text-sm font-medium transition-colors',
                       active ? 'bg-forest-100 text-forest-700' : 'text-forest-600 hover:bg-forest-50 hover:text-forest-800'
                     )}
                   >
@@ -117,7 +117,7 @@ export function Layout({ children }: { children: ReactNode }) {
                   key={link.to}
                   to={link.to}
                   className={classNames(
-                    'flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm font-medium transition-all',
+                    'flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm font-medium transition-colors',
                     location.pathname.startsWith(link.to) ? 'bg-red-100 text-red-700' : 'text-red-600 hover:bg-red-50'
                   )}
                 >

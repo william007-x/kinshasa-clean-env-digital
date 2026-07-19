@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useMemo } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, LayersControl, CircleMarker } from 'react-leaflet';
 import L from 'leaflet';
 import {
@@ -54,6 +54,12 @@ function typeIcon(type: SignalementType): L.DivIcon {
   });
 }
 
+const TYPE_ICON_CACHE: Partial<Record<SignalementType, L.DivIcon>> = {};
+
+function getTypeIcon(type: SignalementType): L.DivIcon {
+  return (TYPE_ICON_CACHE[type] ??= typeIcon(type));
+}
+
 const { BaseLayer } = LayersControl;
 
 export function CartePage() {
@@ -78,11 +84,11 @@ export function CartePage() {
     })();
   }, []);
 
-  const filteredSig = signalements.filter((s) => {
+  const filteredSig = useMemo(() => signalements.filter((s) => {
     if (filterType !== 'all' && s.type !== filterType) return false;
     if (filterStatus !== 'all' && s.status !== filterStatus) return false;
     return true;
-  });
+  }), [signalements, filterType, filterStatus]);
 
   return (
     <div className="w-full px-4 sm:px-6 lg:px-8 py-8 animate-fade-in">
@@ -177,7 +183,7 @@ export function CartePage() {
                 </LayersControl>
 
                 {showSignalements && filteredSig.map((sig) => (
-                  <Marker key={sig.id} position={[sig.latitude, sig.longitude]} icon={typeIcon(sig.type)}>
+                  <Marker key={sig.id} position={[sig.latitude, sig.longitude]} icon={getTypeIcon(sig.type)}>
                     <Popup>
                       <div className="min-w-[200px]">
                         <p className="font-semibold text-forest-900">{sig.title}</p>

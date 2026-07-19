@@ -91,7 +91,7 @@ export function LandingPage() {
                 { label: 'Communes', value: stats.communes, icon: MapPin, color: 'from-earth-400 to-earth-600' },
                 { label: 'Citoyens actifs', value: stats.citizens, icon: Users, color: 'from-river-400 to-river-600' },
               ].map((s, i) => (
-                <div key={s.label} className="rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 p-6 hover:bg-white/15 transition-all" style={{ animationDelay: `${i * 100}ms` }}>
+                <div key={s.label} className="rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 p-6 hover:bg-white/15 transition-colors" style={{ animationDelay: `${i * 100}ms` }}>
                   <div className={`flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br ${s.color} mb-3`}>
                     <s.icon className="h-5 w-5 text-white" />
                   </div>
@@ -125,7 +125,7 @@ export function LandingPage() {
             { icon: Bell, title: 'Notifications', desc: 'Soyez alerté en temps réel du suivi de vos signalements et des campagnes.', color: 'bg-forest-100 text-forest-700' },
             { icon: ShieldCheck, title: 'Gouvernance', desc: 'Tableaux de bord et rapports pour les autorités publiques.', color: 'bg-red-100 text-red-700' },
           ].map((f) => (
-            <div key={f.title} className="card p-6 hover:shadow-md transition-all hover:-translate-y-0.5 group">
+            <div key={f.title} className="card p-6 hover:shadow-md transition-transform transition-shadow hover:-translate-y-0.5 group">
               <div className={`flex h-12 w-12 items-center justify-center rounded-xl ${f.color} mb-4 group-hover:scale-110 transition-transform`}>
                 <f.icon className="h-6 w-6" />
               </div>
@@ -161,7 +161,7 @@ export function LandingPage() {
           ) : (
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {recentSignalements.map((sig) => (
-                <Link key={sig.id} to={`/signalements/${sig.id}`} className="card p-5 hover:shadow-md transition-all hover:-translate-y-0.5">
+                <Link key={sig.id} to={`/signalements/${sig.id}`} className="card p-5 hover:shadow-md transition-transform transition-shadow hover:-translate-y-0.5">
                   <div className="flex items-center justify-between mb-3">
                     <span className={SIGNALEMENT_STATUS_COLORS[sig.status]}>
                       {SIGNALEMENT_STATUS_LABELS[sig.status]}
@@ -234,7 +234,7 @@ export function LandingPage() {
             ) : (
               <div className="space-y-4">
                 {recentArticles.map((a) => (
-                  <Link key={a.id} to={`/education/${a.slug}`} className="card p-5 flex gap-4 hover:shadow-md transition-all">
+                  <Link key={a.id} to={`/education/${a.slug}`} className="card p-5 flex gap-4 hover:shadow-md transition-shadow">
                     {a.image_url ? (
                       <img src={a.image_url} alt="" className="h-20 w-20 rounded-lg object-cover flex-shrink-0" />
                     ) : (

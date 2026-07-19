@@ -219,7 +219,7 @@ export function StatistiquesPage() {
               </tr>
             </thead>
             <tbody className="divide-y divide-sand-100">
-              {communes.sort((a, b) => b.eco_score - a.eco_score).map((c) => (
+                {[...communes].sort((a, b) => b.eco_score - a.eco_score).map((c) => (
                 <tr key={c.id} className="hover:bg-sand-50">
                   <td className="px-6 py-3 font-medium text-forest-900">{c.name}</td>
                   <td className="px-6 py-3 text-right text-forest-600">{c.population.toLocaleString('fr')}</td>

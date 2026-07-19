@@ -85,7 +85,7 @@ export function Modal({ open, onClose, title, children, maxWidth = 'max-w-lg' }:
   if (!open) return null;
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 animate-fade-in" onClick={onClose}>
-      <div className="absolute inset-0 bg-forest-950/40 backdrop-blur-sm" />
+        <div className="absolute inset-0 bg-forest-950/40" />
       <div className={classNames('relative w-full rounded-2xl bg-[#f7f6f1] shadow-2xl animate-scale-in', maxWidth)} onClick={(e) => e.stopPropagation()}>
         <div className="flex items-center justify-between border-b border-sand-200 px-6 py-4">
           <h2 className="font-display text-lg font-semibold text-forest-900">{title}</h2>
@@ -107,7 +107,7 @@ export function ProgressBar({ value, max = 100, color = 'forest' }: { value: num
   };
   return (
     <div className="h-2 w-full rounded-full bg-sand-200 overflow-hidden">
-      <div className={classNames('h-full rounded-full transition-all duration-500', colorMap[color])} style={{ width: `${pct}%` }} />
+      <div className={classNames('h-full rounded-full transition-[width] duration-500', colorMap[color])} style={{ width: `${pct}%` }} />
     </div>
   );
 }

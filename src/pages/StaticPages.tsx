@@ -68,7 +68,7 @@ export function HelpCenterPage() {
       <PageHeader title="Centre d'aide" subtitle="Tout ce dont vous avez besoin pour utiliser la plateforme" />
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {sections.map((s) => (
-          <Link key={s.title} to={s.link} className="card p-6 hover:shadow-md transition-all group">
+          <Link key={s.title} to={s.link} className="card p-6 hover:shadow-md transition-transform transition-shadow group">
             <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-forest-100 text-forest-600 mb-4 group-hover:scale-110 transition-transform">
               <s.icon className="h-6 w-6" />
             </div>

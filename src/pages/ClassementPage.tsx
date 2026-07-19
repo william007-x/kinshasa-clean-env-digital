@@ -209,7 +209,7 @@ export function ClassementPage() {
             {badges.map((b) => {
               const Icon = BADGE_ICONS[b.icon] ?? Award;
               return (
-                <Card key={b.id} className="p-5 text-center hover:shadow-md transition-all">
+                <Card key={b.id} className="p-5 text-center hover:shadow-md transition-shadow">
                   <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-forest-400 to-forest-600 text-white mb-3">
                     <Icon className="h-7 w-7" />
                   </div>

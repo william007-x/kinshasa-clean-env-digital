@@ -254,7 +254,7 @@ export function RegisterPage() {
                 type="button"
                 onClick={() => setRole(r.value)}
                 className={classNames(
-                  'rounded-xl border px-3 py-2.5 text-left transition-all',
+                  'rounded-xl border px-3 py-2.5 text-left transition-colors',
                   role === r.value ? 'border-forest-500 bg-forest-50 ring-2 ring-forest-200' : 'border-sand-300 hover:border-forest-300'
                 )}
               >

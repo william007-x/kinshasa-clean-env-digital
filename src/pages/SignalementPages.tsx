@@ -109,7 +109,7 @@ export function SignalementsListPage() {
           {filtered.map((sig) => {
             const Icon = TYPE_ICONS[sig.type];
             return (
-              <Link key={sig.id} to={`/signalements/${sig.id}`} className="card overflow-hidden hover:shadow-md transition-all hover:-translate-y-0.5">
+              <Link key={sig.id} to={`/signalements/${sig.id}`} className="card overflow-hidden hover:shadow-md transition-transform transition-shadow hover:-translate-y-0.5">
                 {sig.photo_url && (
                   <div className="aspect-video w-full overflow-hidden bg-sand-100">
                     <img src={sig.photo_url} alt={sig.title} className="h-full w-full object-cover" loading="lazy" />
@@ -275,7 +275,7 @@ export function SignalementCreatePage() {
                 const Icon = TYPE_ICONS[t.value];
                 return (
                   <button key={t.value} type="button" onClick={() => setType(t.value)}
-                    className={classNames('flex flex-col items-center gap-1.5 rounded-xl border px-3 py-3 text-xs font-medium transition-all',
+                    className={classNames('flex flex-col items-center gap-1.5 rounded-xl border px-3 py-3 text-xs font-medium transition-colors',
                       type === t.value ? 'border-forest-500 bg-forest-50 text-forest-700 ring-2 ring-forest-200' : 'border-sand-300 text-forest-600 hover:border-forest-300')}>
                     <Icon className="h-5 w-5" />
                     {t.label}
