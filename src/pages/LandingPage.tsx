@@ -59,7 +59,7 @@ export function LandingPage() {
         <div className="relative w-full px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in-up">
-              <div className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-sm px-4 py-1.5 text-sm font-medium mb-6">
+                <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium mb-6">
                 <Sprout className="h-4 w-4" />
                 Pour une Kinshasa plus verte et durable
               </div>
@@ -76,7 +76,7 @@ export function LandingPage() {
                   <AlertTriangle className="h-4 w-4" />
                   Signaler un incident
                 </Link>
-                <Link to="/carte" className="btn bg-white/10 backdrop-blur text-white border border-white/30 hover:bg-white/20 focus:ring-white">
+                <Link to="/carte" className="btn bg-white/10 text-white border border-white/30 hover:bg-white/20 focus:ring-white">
                   <MapIcon className="h-4 w-4" />
                   Explorer la carte
                 </Link>
@@ -91,7 +91,7 @@ export function LandingPage() {
                 { label: 'Communes', value: stats.communes, icon: MapPin, color: 'from-earth-400 to-earth-600' },
                 { label: 'Citoyens actifs', value: stats.citizens, icon: Users, color: 'from-river-400 to-river-600' },
               ].map((s, i) => (
-                <div key={s.label} className="rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 p-6 hover:bg-white/15 transition-colors" style={{ animationDelay: `${i * 100}ms` }}>
+                  <div key={s.label} className="rounded-2xl bg-white/10 border border-white/20 p-6 hover:bg-white/15 transition-colors" style={{ animationDelay: `${i * 100}ms` }}>
                   <div className={`flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br ${s.color} mb-3`}>
                     <s.icon className="h-5 w-5 text-white" />
                   </div>
@@ -274,7 +274,7 @@ export function LandingPage() {
                 Créer un compte
                 <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link to="/education" className="btn bg-white/10 backdrop-blur text-white border border-white/30 hover:bg-white/20">
+              <Link to="/education" className="btn bg-white/10 text-white border border-white/30 hover:bg-white/20">
                 <BookOpen className="h-4 w-4" />
                 Découvrir le centre éducatif
               </Link>
