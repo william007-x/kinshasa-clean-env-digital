@@ -44,7 +44,7 @@ function RouteFallback() {
 
 function App() {
   return (
-    <ReactLenis root options={{ lerp: 0.08, duration: 1.2, smoothWheel: true }}>
+    <ReactLenis root options={{ lerp: 0.1, duration: 1.2, smoothWheel: true, syncTouch: true, syncTouchLerp: 0.1, touchMultiplier: 1.5 }}>
       <AuthProvider>
         <BrowserRouter>
           <Layout>
