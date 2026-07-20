@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ReactLenis } from 'lenis/react';
 import { AuthProvider } from './lib/auth';
 import { Layout } from './components/Layout';
 import { ProtectedRoute } from './components/ProtectedRoute';
@@ -43,11 +44,12 @@ function RouteFallback() {
 
 function App() {
   return (
-    <AuthProvider>
-      <BrowserRouter>
-        <Layout>
-          <Suspense fallback={<RouteFallback />}>
-            <Routes>
+    <ReactLenis root options={{ lerp: 0.08, duration: 1.2, smoothWheel: true }}>
+      <AuthProvider>
+        <BrowserRouter>
+          <Layout>
+            <Suspense fallback={<RouteFallback />}>
+              <Routes>
               {/* Public routes */}
               <Route path="/" element={<LandingPage />} />
               <Route path="/connexion" element={<LoginPage />} />
@@ -90,6 +92,7 @@ function App() {
         </Layout>
       </BrowserRouter>
     </AuthProvider>
+    </ReactLenis>
   );
 }
 
