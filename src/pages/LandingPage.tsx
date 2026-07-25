@@ -52,12 +52,13 @@ export function LandingPage() {
   }, []);
 
   return (
-    <div className="animate-fade-in">
+    <div className="w-full max-w-none m-0 p-0 animate-fade-in">
       {/* Hero Section */}
-      <section className="relative overflow-hidden gradient-hero text-white">
-        <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(34,197,94,0.3) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(217,119,66,0.2) 0%, transparent 50%)' }} />
-        <div className="relative w-full px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <section className="relative overflow-hidden w-full h-full bg-forest-950 bg-[url('/hero.jpg')] bg-cover bg-center bg-no-repeat text-white min-h-screen">
+         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/30" />
+         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(34,197,94,0.3) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(217,119,66,0.2) 0%, transparent 50%)' }} />
+           <div className="relative max-w-[1600px] mx-auto px-8 md:px-12 lg:px-16 pt-20 lg:pt-28">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="animate-fade-in-up">
                 <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium mb-6">
                 <Sprout className="h-4 w-4" />
@@ -91,7 +92,7 @@ export function LandingPage() {
                 { label: 'Communes', value: stats.communes, icon: MapPin, color: 'from-earth-400 to-earth-600' },
                 { label: 'Citoyens actifs', value: stats.citizens, icon: Users, color: 'from-river-400 to-river-600' },
               ].map((s, i) => (
-                  <div key={s.label} className="rounded-2xl bg-white/10 border border-white/20 p-6 hover:bg-white/15 transition-colors" style={{ animationDelay: `${i * 100}ms` }}>
+                  <div key={s.label} className="rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 p-6 hover:bg-white/15 transition-colors" style={{ animationDelay: `${i * 100}ms` }}>
                   <div className={`flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br ${s.color} mb-3`}>
                     <s.icon className="h-5 w-5 text-white" />
                   </div>
@@ -102,9 +103,7 @@ export function LandingPage() {
             </div>
           </div>
         </div>
-        {/* Wave separator */}
-        <div className="relative h-12 bg-sand-50" style={{ clipPath: 'polygon(0 100%, 100% 100%, 100% 0, 0 100%)', marginTop: '-1px' }} />
-      </section>
+       </section>
 
       {/* Features Section */}
       <section className="w-full px-4 sm:px-6 lg:px-8 py-16">
