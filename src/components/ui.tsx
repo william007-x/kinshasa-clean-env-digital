@@ -8,7 +8,7 @@ export function Spinner({ className }: { className?: string }) {
 
 export function LoadingState({ message = 'Chargement…' }: { message?: string }) {
   return (
-    <div className="flex flex-col items-center justify-center py-16 text-forest-600">
+    <div className="flex flex-col items-center justify-center py-16 text-primary-600">
       <Spinner className="h-8 w-8 mb-3" />
       <p className="text-sm font-medium">{message}</p>
     </div>
@@ -18,9 +18,9 @@ export function LoadingState({ message = 'Chargement…' }: { message?: string }
 export function EmptyState({ icon, title, description, action }: { icon?: ReactNode; title: string; description?: string; action?: ReactNode }) {
   return (
     <div className="flex flex-col items-center justify-center py-16 text-center">
-      {icon && <div className="mb-4 text-forest-300">{icon}</div>}
-      <h3 className="font-display text-lg font-semibold text-forest-800">{title}</h3>
-      {description && <p className="mt-1.5 max-w-md text-sm text-forest-500">{description}</p>}
+      {icon && <div className="mb-4 text-primary-300">{icon}</div>}
+      <h3 className="font-display text-lg font-semibold text-primary-800">{title}</h3>
+      {description && <p className="mt-1.5 max-w-md text-sm text-primary-500">{description}</p>}
       {action && <div className="mt-5">{action}</div>}
     </div>
   );
@@ -40,9 +40,9 @@ export function Card({ className, children }: { className?: string; children: Re
 
 export function StatCard({ label, value, icon, trend, color = 'forest' }: { label: string; value: string | number; icon: ReactNode; trend?: { value: string; up: boolean }; color?: 'forest' | 'earth' | 'river' | 'amber' | 'red' }) {
   const colorMap = {
-    forest: 'bg-forest-100 text-forest-700',
-    earth: 'bg-earth-100 text-earth-700',
-    river: 'bg-river-100 text-river-700',
+    forest: 'bg-primary-100 text-primary-700',
+    earth: 'bg-sage-100 text-sage-700',
+    river: 'bg-coral-100 text-coral-700',
     amber: 'bg-amber-100 text-amber-700',
     red: 'bg-red-100 text-red-700',
   };
@@ -50,7 +50,7 @@ export function StatCard({ label, value, icon, trend, color = 'forest' }: { labe
     <Card className="p-5 animate-fade-in-up">
       <div className="flex items-start justify-between">
         <div>
-          <p className="text-sm font-medium text-forest-500">{label}</p>
+          <p className="text-sm font-medium text-primary-500">{label}</p>
           <p className="stat-value mt-1">{value}</p>
         </div>
         <div className={classNames('flex h-11 w-11 items-center justify-center rounded-xl', colorMap[color])}>
@@ -59,10 +59,10 @@ export function StatCard({ label, value, icon, trend, color = 'forest' }: { labe
       </div>
       {trend && (
         <div className="mt-3 flex items-center gap-1 text-xs">
-          <span className={trend.up ? 'text-forest-600 font-semibold' : 'text-red-500 font-semibold'}>
+          <span className={trend.up ? 'text-primary-600 font-semibold' : 'text-red-500 font-semibold'}>
             {trend.up ? '↑' : '↓'} {trend.value}
           </span>
-          <span className="text-forest-400">vs. mois dernier</span>
+          <span className="text-primary-400">vs. mois dernier</span>
         </div>
       )}
     </Card>
@@ -73,8 +73,8 @@ export function PageHeader({ title, subtitle, action }: { title: string; subtitl
   return (
     <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
       <div>
-        <h1 className="font-display text-2xl font-bold text-forest-900 sm:text-3xl">{title}</h1>
-        {subtitle && <p className="mt-1 text-sm text-forest-500">{subtitle}</p>}
+        <h1 className="font-display text-2xl font-bold text-primary-900 sm:text-3xl">{title}</h1>
+        {subtitle && <p className="mt-1 text-sm text-primary-500">{subtitle}</p>}
       </div>
       {action && <div className="flex-shrink-0">{action}</div>}
     </div>
@@ -85,11 +85,11 @@ export function Modal({ open, onClose, title, children, maxWidth = 'max-w-lg' }:
   if (!open) return null;
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 animate-fade-in" onClick={onClose}>
-        <div className="absolute inset-0 bg-forest-950/40" />
+        <div className="absolute inset-0 bg-primary-950/40" />
       <div className={classNames('relative w-full rounded-2xl bg-[#f7f6f1] shadow-2xl animate-scale-in', maxWidth)} onClick={(e) => e.stopPropagation()}>
         <div className="flex items-center justify-between border-b border-sand-200 px-6 py-4">
-          <h2 className="font-display text-lg font-semibold text-forest-900">{title}</h2>
-          <button onClick={onClose} className="text-forest-400 hover:text-forest-700 text-xl leading-none">×</button>
+          <h2 className="font-display text-lg font-semibold text-primary-900">{title}</h2>
+          <button onClick={onClose} className="text-primary-400 hover:text-primary-700 text-xl leading-none">×</button>
         </div>
         <div className="max-h-[70vh] overflow-y-auto px-6 py-5">{children}</div>
       </div>
@@ -100,8 +100,8 @@ export function Modal({ open, onClose, title, children, maxWidth = 'max-w-lg' }:
 export function ProgressBar({ value, max = 100, color = 'forest' }: { value: number; max?: number; color?: 'forest' | 'earth' | 'amber' | 'red' }) {
   const pct = Math.min(100, (value / max) * 100);
   const colorMap = {
-    forest: 'bg-forest-500',
-    earth: 'bg-earth-500',
+    forest: 'bg-primary-500',
+    earth: 'bg-sage-500',
     amber: 'bg-amber-500',
     red: 'bg-red-500',
   };

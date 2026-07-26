@@ -10,7 +10,7 @@ const ROLES = [
     key: 'citoyen',
     title: 'Citoyen',
     icon: Users,
-    color: 'bg-forest-100 text-forest-700',
+    color: 'bg-primary-100 text-primary-700',
     description: 'Signalez et suivez les incidents environnementaux de votre quartier.',
     steps: [
       { title: 'Créer un compte', desc: 'Inscrivez-vous avec le rôle Citoyen et sélectionnez votre commune.' },
@@ -23,7 +23,7 @@ const ROLES = [
     key: 'collecteur',
     title: 'Collecteur',
     icon: Recycle,
-    color: 'bg-earth-100 text-earth-700',
+    color: 'bg-sage-100 text-sage-700',
     description: 'Gérez les tournées de ramassage et mettez à jour l\'état des points de dépôt.',
     steps: [
       { title: 'Accéder à la gestion des déchets', desc: 'Rendez-vous dans le module Déchets pour voir les points de dépôt et tournées.' },
@@ -36,7 +36,7 @@ const ROLES = [
     key: 'ong',
     title: 'ONG / Partenaire',
     icon: BookOpen,
-    color: 'bg-river-100 text-river-700',
+    color: 'bg-coral-100 text-coral-700',
     description: 'Publiez des contenus éducatifs et des campagnes de sensibilisation.',
     steps: [
       { title: 'Créer un article', desc: 'Rédigez et publiez des articles éducatifs dans le Centre éducatif.' },
@@ -74,8 +74,8 @@ export function UserGuidePage() {
             <div className={`flex h-10 w-10 items-center justify-center rounded-xl mb-3 ${r.color}`}>
               <r.icon className="h-5 w-5" />
             </div>
-            <h3 className="font-display font-semibold text-forest-900 text-sm">{r.title}</h3>
-            <p className="mt-1 text-xs text-forest-500 leading-relaxed">{r.description}</p>
+            <h3 className="font-display font-semibold text-primary-900 text-sm">{r.title}</h3>
+            <p className="mt-1 text-xs text-primary-500 leading-relaxed">{r.description}</p>
           </Card>
         ))}
       </div>
@@ -88,19 +88,19 @@ export function UserGuidePage() {
                 <role.icon className="h-5 w-5" />
               </div>
               <div>
-                <h3 className="font-display font-semibold text-forest-900">Guide {role.title}</h3>
-                <p className="text-sm text-forest-500">{role.description}</p>
+                <h3 className="font-display font-semibold text-primary-900">Guide {role.title}</h3>
+                <p className="text-sm text-primary-500">{role.description}</p>
               </div>
             </div>
             <div className="grid sm:grid-cols-2 gap-4">
               {role.steps.map((step, idx) => (
                 <div key={idx} className="flex gap-3 p-4 rounded-xl bg-sand-50 border border-sand-100">
-                  <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-white text-forest-700 font-display font-bold text-sm shadow-sm">
+                  <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-white text-primary-700 font-display font-bold text-sm shadow-sm">
                     {idx + 1}
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-forest-900">{step.title}</p>
-                    <p className="text-xs text-forest-500 mt-0.5">{step.desc}</p>
+                    <p className="text-sm font-medium text-primary-900">{step.title}</p>
+                    <p className="text-xs text-primary-500 mt-0.5">{step.desc}</p>
                   </div>
                 </div>
               ))}

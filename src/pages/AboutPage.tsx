@@ -50,7 +50,7 @@ export function AboutPage() {
               améliorer le cadre de vie et la salubrité de la capitale congolaise.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Link to="/inscription" className="btn-primary bg-white text-forest-700 hover:bg-sand-50">
+              <Link to="/inscription" className="btn-primary bg-white text-primary-700 hover:bg-sand-50">
                 Rejoindre le mouvement <ArrowRight className="h-4 w-4" />
               </Link>
               <Link to="/carte" className="btn-ghost text-white border-white/40 hover:bg-white/10">
@@ -65,29 +65,29 @@ export function AboutPage() {
       <div className="grid md:grid-cols-3 gap-4 mb-8">
         {VALUES.map((v) => (
           <Card key={v.title} className="p-6">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-forest-100 text-forest-600 mb-4">
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-100 text-primary-600 mb-4">
               <v.icon className="h-6 w-6" />
             </div>
-            <h3 className="font-display font-semibold text-forest-900">{v.title}</h3>
-            <p className="mt-2 text-sm text-forest-600 leading-relaxed">{v.text}</p>
+            <h3 className="font-display font-semibold text-primary-900">{v.title}</h3>
+            <p className="mt-2 text-sm text-primary-600 leading-relaxed">{v.text}</p>
           </Card>
         ))}
       </div>
 
       {/* Ce que la plateforme permet */}
       <Card className="p-6 sm:p-8 mb-8">
-        <h3 className="font-display text-xl font-semibold text-forest-900 mb-6">
+        <h3 className="font-display text-xl font-semibold text-primary-900 mb-6">
           Ce que la plateforme permet
         </h3>
         <div className="grid sm:grid-cols-2 gap-6">
           {MISSION_POINTS.map((m) => (
             <div key={m.title} className="flex gap-4">
-              <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-forest-50 text-forest-600">
+              <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-primary-50 text-primary-600">
                 <m.icon className="h-5 w-5" />
               </div>
               <div>
-                <h4 className="font-display font-semibold text-forest-900">{m.title}</h4>
-                <p className="mt-1 text-sm text-forest-600 leading-relaxed">{m.desc}</p>
+                <h4 className="font-display font-semibold text-primary-900">{m.title}</h4>
+                <p className="mt-1 text-sm text-primary-600 leading-relaxed">{m.desc}</p>
               </div>
             </div>
           ))}
@@ -96,20 +96,20 @@ export function AboutPage() {
 
       {/* Rôles */}
       <Card className="p-6 sm:p-8 mb-8">
-        <h3 className="font-display text-xl font-semibold text-forest-900 mb-2">
+        <h3 className="font-display text-xl font-semibold text-primary-900 mb-2">
           Les acteurs de la plateforme
         </h3>
-        <p className="text-sm text-forest-500 mb-6">
+        <p className="text-sm text-primary-500 mb-6">
           Une gouvernance collaborative basée sur le principe du moindre privilège.
         </p>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {ROLES.map((r) => (
-            <div key={r.title} className="rounded-xl border border-sand-200 p-5 hover:border-forest-300 transition-colors">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-forest-100 text-forest-600 mb-3">
+            <div key={r.title} className="rounded-xl border border-sand-200 p-5 hover:border-primary-300 transition-colors">
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary-100 text-primary-600 mb-3">
                 <r.icon className="h-5 w-5" />
               </div>
-              <h4 className="font-display font-semibold text-forest-900 text-sm">{r.title}</h4>
-              <p className="mt-1 text-xs text-forest-500 leading-relaxed">{r.desc}</p>
+              <h4 className="font-display font-semibold text-primary-900 text-sm">{r.title}</h4>
+              <p className="mt-1 text-xs text-primary-500 leading-relaxed">{r.desc}</p>
             </div>
           ))}
         </div>
@@ -124,19 +124,19 @@ export function AboutPage() {
           { value: '100%', label: 'Open & collaboratif' },
         ].map((s) => (
           <Card key={s.label} className="p-5 text-center">
-            <div className="font-display text-3xl font-extrabold text-forest-700">{s.value}</div>
-            <div className="mt-1 text-xs text-forest-500">{s.label}</div>
+            <div className="font-display text-3xl font-extrabold text-primary-700">{s.value}</div>
+            <div className="mt-1 text-xs text-primary-500">{s.label}</div>
           </Card>
         ))}
       </div>
 
       {/* CTA */}
-      <Card className="p-8 text-center bg-gradient-to-br from-forest-50 to-sand-50">
-        <BookOpen className="mx-auto h-10 w-10 text-forest-600 mb-3" />
-        <h3 className="font-display text-xl font-semibold text-forest-900">
+      <Card className="p-8 text-center bg-gradient-to-br from-primary-50 to-sand-50">
+        <BookOpen className="mx-auto h-10 w-10 text-primary-600 mb-3" />
+        <h3 className="font-display text-xl font-semibold text-primary-900">
           Besoin d'aide pour prendre en main la plateforme ?
         </h3>
-        <p className="mt-2 text-sm text-forest-600 max-w-xl mx-auto">
+        <p className="mt-2 text-sm text-primary-600 max-w-xl mx-auto">
           Consultez notre guide d'utilisation complet pour découvrir le fonctionnement de la plateforme selon votre rôle (Citoyen, Collecteur, ONG, Autorité).
         </p>
         <Link to="/guide" className="btn-primary mt-6 inline-flex">

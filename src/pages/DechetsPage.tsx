@@ -96,7 +96,7 @@ export function DechetsPage() {
             key={t.key}
             onClick={() => setTab(t.key as typeof tab)}
             className={classNames('flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors',
-              tab === t.key ? 'bg-[#f7f6f1] text-forest-700 shadow-sm' : 'text-forest-500 hover:text-forest-700')}
+              tab === t.key ? 'bg-[#f7f6f1] text-primary-700 shadow-sm' : 'text-primary-500 hover:text-primary-700')}
           >
             <t.icon className="h-4 w-4" />
             {t.label}
@@ -154,24 +154,24 @@ function DepotsTab({ depots, onRefresh, addOpen, setAddOpen, canManage }: { depo
             <Card key={depot.id} className="p-5">
               <div className="flex items-start justify-between mb-3">
                 <div className="flex items-start gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-forest-100 text-forest-600">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary-100 text-primary-600">
                     <Trash2 className="h-5 w-5" />
                   </div>
                   <div>
-                    <h3 className="font-display font-semibold text-forest-900">{depot.name}</h3>
-                    {depot.communes && <p className="text-xs text-forest-500 flex items-center gap-1 mt-0.5"><MapPin className="h-3 w-3" />{depot.communes.name}</p>}
+                    <h3 className="font-display font-semibold text-primary-900">{depot.name}</h3>
+                    {depot.communes && <p className="text-xs text-primary-500 flex items-center gap-1 mt-0.5"><MapPin className="h-3 w-3" />{depot.communes.name}</p>}
                   </div>
                 </div>
                 <span className={DEPOT_STATUS_COLORS[depot.status]}>{DEPOT_STATUS_LABELS[depot.status]}</span>
               </div>
               <div className="mt-4">
                 <div className="flex items-center justify-between text-sm mb-1.5">
-                  <span className="text-forest-500">Remplissage</span>
-                  <span className="font-semibold text-forest-900">{depot.current_fill_pct}%</span>
+                  <span className="text-primary-500">Remplissage</span>
+                  <span className="font-semibold text-primary-900">{depot.current_fill_pct}%</span>
                 </div>
                 <ProgressBar value={depot.current_fill_pct} color={depot.current_fill_pct > 80 ? 'red' : depot.current_fill_pct > 60 ? 'amber' : 'forest'} />
-                <p className="text-xs text-forest-400 mt-2">Capacité: {depot.capacity_m3} m³</p>
-                {depot.last_collected_at && <p className="text-xs text-forest-400">Dernière collecte: {formatDate(depot.last_collected_at)}</p>}
+                <p className="text-xs text-primary-400 mt-2">Capacité: {depot.capacity_m3} m³</p>
+                {depot.last_collected_at && <p className="text-xs text-primary-400">Dernière collecte: {formatDate(depot.last_collected_at)}</p>}
               </div>
             </Card>
           ))}
@@ -240,12 +240,12 @@ function TourneesTab({ tournees, collecteurs, onRefresh, addOpen, setAddOpen, ca
             <Card key={t.id} className="p-5">
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div className="flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-river-100 text-river-700">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-coral-100 text-coral-700">
                     <Route className="h-6 w-6" />
                   </div>
                   <div>
-                    <p className="font-display font-semibold text-forest-900">{t.collecteurs?.name ?? 'Non assignée'}</p>
-                    <div className="flex flex-wrap items-center gap-3 text-xs text-forest-500 mt-1">
+                    <p className="font-display font-semibold text-primary-900">{t.collecteurs?.name ?? 'Non assignée'}</p>
+                    <div className="flex flex-wrap items-center gap-3 text-xs text-primary-500 mt-1">
                       <span className="flex items-center gap-1"><Calendar className="h-3 w-3" />{formatDate(t.date_scheduled)}</span>
                       {t.communes && <span className="flex items-center gap-1"><MapPin className="h-3 w-3" />{t.communes.name}</span>}
                       {t.tournee_points && t.tournee_points.length > 0 && (
@@ -256,10 +256,10 @@ function TourneesTab({ tournees, collecteurs, onRefresh, addOpen, setAddOpen, ca
                 </div>
                 <div className="flex items-center gap-3">
                   <span className={TOURNEE_STATUS_COLORS[t.status]}>{TOURNEE_STATUS_LABELS[t.status]}</span>
-                  {t.date_completed && <span className="text-xs text-forest-400 flex items-center gap-1"><CheckCircle2 className="h-3 w-3" />{formatDate(t.date_completed)}</span>}
+                  {t.date_completed && <span className="text-xs text-primary-400 flex items-center gap-1"><CheckCircle2 className="h-3 w-3" />{formatDate(t.date_completed)}</span>}
                 </div>
               </div>
-              {t.notes && <p className="mt-3 text-sm text-forest-500 border-t border-sand-100 pt-3">{t.notes}</p>}
+              {t.notes && <p className="mt-3 text-sm text-primary-500 border-t border-sand-100 pt-3">{t.notes}</p>}
             </Card>
           ))}
         </div>
@@ -304,18 +304,18 @@ function CollecteursTab({ collecteurs }: { collecteurs: Collecteur[] }) {
           {collecteurs.map((c) => (
             <Card key={c.id} className="p-5">
               <div className="flex items-start gap-3 mb-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-earth-100 text-earth-700">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-sage-100 text-sage-700">
                   <Truck className="h-6 w-6" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-display font-semibold text-forest-900">{c.name}</h3>
-                  <p className="text-xs text-forest-500 mt-0.5">{VEHICLE_LABELS[c.vehicle_type]}</p>
+                  <h3 className="font-display font-semibold text-primary-900">{c.name}</h3>
+                  <p className="text-xs text-primary-500 mt-0.5">{VEHICLE_LABELS[c.vehicle_type]}</p>
                 </div>
                 <span className={c.active ? 'badge-forest' : 'badge-sand'}>{c.active ? 'Actif' : 'Inactif'}</span>
               </div>
               {c.commune_ids.length > 0 && (
                 <div className="mt-3 pt-3 border-t border-sand-100">
-                  <p className="text-xs font-medium text-forest-600 mb-1.5">Communes desservies</p>
+                  <p className="text-xs font-medium text-primary-600 mb-1.5">Communes desservies</p>
                   <div className="flex flex-wrap gap-1.5">
                     {c.commune_ids.map((id) => <span key={id} className="badge-sand">{id.charAt(0).toUpperCase() + id.slice(1).replace('-', ' ')}</span>)}
                   </div>

@@ -89,12 +89,12 @@ export function ProfilePage() {
               </div>
             ) : (
               <>
-                <h2 className="font-display text-2xl font-bold text-forest-900">{profile?.full_name}</h2>
+                <h2 className="font-display text-2xl font-bold text-primary-900">{profile?.full_name}</h2>
                 <div className="mt-2 flex flex-wrap items-center gap-2">
                   <span className={ROLE_COLORS[profile?.role ?? 'citoyen']}>{ROLE_LABELS[profile?.role ?? 'citoyen']}</span>
                 </div>
-                {profile?.bio && <p className="mt-3 text-sm text-forest-600">{profile.bio}</p>}
-                <div className="mt-3 flex flex-wrap items-center gap-4 text-sm text-forest-500">
+                {profile?.bio && <p className="mt-3 text-sm text-primary-600">{profile.bio}</p>}
+                <div className="mt-3 flex flex-wrap items-center gap-4 text-sm text-primary-500">
                   {profile?.phone && <span className="flex items-center gap-1"><Phone className="h-4 w-4" />{profile.phone}</span>}
                   {user?.email && <span className="flex items-center gap-1"><Mail className="h-4 w-4" />{user.email}</span>}
                 </div>
@@ -117,12 +117,12 @@ export function ProfilePage() {
         {/* Recent activity */}
         <Card className="overflow-hidden">
           <div className="px-6 py-4 border-b border-sand-200">
-            <h3 className="font-display font-semibold text-forest-900">Mes signalements récents</h3>
+            <h3 className="font-display font-semibold text-primary-900">Mes signalements récents</h3>
           </div>
           {signalements.length === 0 ? (
             <div className="px-6 py-8 text-center">
-              <AlertTriangle className="h-8 w-8 text-forest-300 mx-auto mb-2" />
-              <p className="text-sm text-forest-400 mb-3">Aucun signalement.</p>
+              <AlertTriangle className="h-8 w-8 text-primary-300 mx-auto mb-2" />
+              <p className="text-sm text-primary-400 mb-3">Aucun signalement.</p>
               <Link to="/signalements/nouveau" className="btn-primary text-sm">Créer un signalement</Link>
             </div>
           ) : (
@@ -130,8 +130,8 @@ export function ProfilePage() {
               {signalements.slice(0, 8).map((sig) => (
                 <Link key={sig.id} to={`/signalements/${sig.id}`} className="flex items-center gap-3 px-6 py-3 hover:bg-sand-50">
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium text-forest-900 truncate">{sig.title}</p>
-                    <p className="text-xs text-forest-400">{timeAgo(sig.created_at)}</p>
+                    <p className="text-sm font-medium text-primary-900 truncate">{sig.title}</p>
+                    <p className="text-xs text-primary-400">{timeAgo(sig.created_at)}</p>
                   </div>
                   <span className={classNames(sig.status === 'resolu' ? 'badge-forest' : sig.status === 'en_attente' ? 'badge-amber' : sig.status === 'en_cours' ? 'badge-river' : 'badge-red')}>
                     {sig.status}
@@ -176,17 +176,17 @@ export function NotificationsPage() {
         <Card className="overflow-hidden">
           <div className="divide-y divide-sand-100">
             {notifications.map((n) => (
-              <div key={n.id} className={classNames('flex items-start gap-3 px-5 py-4', !n.read && 'bg-forest-50/50')}>
+              <div key={n.id} className={classNames('flex items-start gap-3 px-5 py-4', !n.read && 'bg-primary-50/50')}>
                 <div className={classNames('flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl',
-                  n.type === 'success' ? 'bg-forest-100 text-forest-600' : n.type === 'warning' ? 'bg-amber-100 text-amber-600' : n.type === 'error' ? 'bg-red-100 text-red-600' : n.type === 'badge' ? 'bg-amber-100 text-amber-600' : 'bg-river-100 text-river-600')}>
+                  n.type === 'success' ? 'bg-primary-100 text-primary-600' : n.type === 'warning' ? 'bg-amber-100 text-amber-600' : n.type === 'error' ? 'bg-red-100 text-red-600' : n.type === 'badge' ? 'bg-amber-100 text-amber-600' : 'bg-coral-100 text-coral-600')}>
                   {n.type === 'badge' ? <Award className="h-4 w-4" /> : n.type === 'signalement' ? <AlertTriangle className="h-4 w-4" /> : <Bell className="h-4 w-4" />}
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className={classNames('text-sm', !n.read ? 'font-semibold text-forest-900' : 'text-forest-700')}>{n.title}</p>
-                  <p className="text-xs text-forest-500 mt-0.5">{n.message}</p>
-                  <p className="text-xs text-forest-400 mt-1">{timeAgo(n.created_at)}</p>
+                  <p className={classNames('text-sm', !n.read ? 'font-semibold text-primary-900' : 'text-primary-700')}>{n.title}</p>
+                  <p className="text-xs text-primary-500 mt-0.5">{n.message}</p>
+                  <p className="text-xs text-primary-400 mt-1">{timeAgo(n.created_at)}</p>
                 </div>
-                {!n.read && <button onClick={() => markRead(n.id)} className="text-xs font-medium text-forest-600 hover:text-forest-700">Marquer lu</button>}
+                {!n.read && <button onClick={() => markRead(n.id)} className="text-xs font-medium text-primary-600 hover:text-primary-700">Marquer lu</button>}
               </div>
             ))}
           </div>
@@ -224,19 +224,19 @@ export function SettingsPage() {
       <div className="space-y-6">
         {/* Account info */}
         <Card className="p-6">
-          <h3 className="font-display font-semibold text-forest-900 mb-4 flex items-center gap-2">
-            <User className="h-5 w-5 text-forest-600" /> Informations du compte
+          <h3 className="font-display font-semibold text-primary-900 mb-4 flex items-center gap-2">
+            <User className="h-5 w-5 text-primary-600" /> Informations du compte
           </h3>
           <div className="space-y-3 text-sm">
             <div className="flex items-center justify-between py-2 border-b border-sand-100">
-              <span className="text-forest-500">Email</span>
-              <span className="font-medium text-forest-900">{user?.email}</span>
+              <span className="text-primary-500">Email</span>
+              <span className="font-medium text-primary-900">{user?.email}</span>
             </div>
             <div className="flex items-center justify-between py-2 border-b border-sand-100">
-              <span className="text-forest-500">ID utilisateur</span>
-              <span className="font-mono text-xs text-forest-700">{user?.id.slice(0, 12)}…</span>
+              <span className="text-primary-500">ID utilisateur</span>
+              <span className="font-mono text-xs text-primary-700">{user?.id.slice(0, 12)}…</span>
             </div>
-            <Link to="/profile" className="flex items-center justify-between py-2 text-forest-600 hover:text-forest-700">
+            <Link to="/profile" className="flex items-center justify-between py-2 text-primary-600 hover:text-primary-700">
               <span>Modifier le profil</span>
               <ChevronRight className="h-4 w-4" />
             </Link>
@@ -245,18 +245,18 @@ export function SettingsPage() {
 
         {/* Password change */}
         <Card className="p-6">
-          <h3 className="font-display font-semibold text-forest-900 mb-4 flex items-center gap-2">
-            <Lock className="h-5 w-5 text-forest-600" /> Changer le mot de passe
+          <h3 className="font-display font-semibold text-primary-900 mb-4 flex items-center gap-2">
+            <Lock className="h-5 w-5 text-primary-600" /> Changer le mot de passe
           </h3>
-          {message && <div className="rounded-xl bg-forest-50 border border-forest-200 px-4 py-3 text-sm text-forest-700 mb-4">{message}</div>}
+          {message && <div className="rounded-xl bg-primary-50 border border-primary-200 px-4 py-3 text-sm text-primary-700 mb-4">{message}</div>}
           {error && <ErrorState message={error} />}
           <form onSubmit={handlePasswordChange} className="space-y-4">
             <div>
               <label className="label" htmlFor="new-pwd">Nouveau mot de passe</label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-forest-400" />
+                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-primary-400" />
                 <input id="new-pwd" type={showPassword ? 'text' : 'password'} value={newPassword} onChange={(e) => setNewPassword(e.target.value)} className="input pl-10 pr-10" placeholder="••••••••" />
-                <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 text-forest-400">
+                <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 text-primary-400">
                   {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                 </button>
               </div>
@@ -267,13 +267,13 @@ export function SettingsPage() {
 
         {/* Privacy */}
         <Card className="p-6">
-          <h3 className="font-display font-semibold text-forest-900 mb-4 flex items-center gap-2">
-            <Shield className="h-5 w-5 text-forest-600" /> Confidentialité et sécurité
+          <h3 className="font-display font-semibold text-primary-900 mb-4 flex items-center gap-2">
+            <Shield className="h-5 w-5 text-primary-600" /> Confidentialité et sécurité
           </h3>
-          <div className="space-y-3 text-sm text-forest-600">
+          <div className="space-y-3 text-sm text-primary-600">
             <p>Vos données sont protégées par les politiques de sécurité Supabase (RLS — Row Level Security).</p>
             <p>Seules les informations que vous publiez (signalements, commentaires) sont visibles par les autres utilisateurs.</p>
-            <Link to="/confidentialite" className="block text-forest-600 hover:text-forest-700 font-medium mt-3">Lire la politique de confidentialité →</Link>
+            <Link to="/confidentialite" className="block text-primary-600 hover:text-primary-700 font-medium mt-3">Lire la politique de confidentialité →</Link>
           </div>
         </Card>
       </div>

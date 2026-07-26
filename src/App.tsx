@@ -37,7 +37,7 @@ const ForbiddenPage = lazy(() => import('./pages/StaticPages').then((m) => ({ de
 function RouteFallback() {
   return (
     <div className="flex items-center justify-center py-24">
-      <span className="h-8 w-8 animate-spin rounded-full border-2 border-forest-200 border-t-forest-600" />
+      <span className="h-8 w-8 animate-spin rounded-full border-2 border-primary-200 border-t-primary-600" />
     </div>
   );
 }

@@ -54,7 +54,7 @@ export function LandingPage() {
   return (
     <div className="w-full max-w-none m-0 p-0 animate-fade-in">
       {/* Hero Section */}
-        <section className="relative overflow-hidden w-full h-full bg-forest-950 bg-[url('/hero.jpg')] bg-cover bg-center bg-no-repeat text-white min-h-screen">
+        <section className="relative overflow-hidden w-full h-full bg-primary-950 bg-[url('/hero.jpg')] bg-cover bg-center bg-no-repeat text-white min-h-screen">
          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/30" />
          <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(34,197,94,0.3) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(217,119,66,0.2) 0%, transparent 50%)' }} />
            <div className="relative max-w-[1600px] mx-auto px-8 md:px-12 lg:px-16 pt-20 lg:pt-28">
@@ -65,7 +65,7 @@ export function LandingPage() {
                 Pour une Kinshasa plus verte et durable
               </div>
               <h1 className="font-display text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl text-balance">
-                Ensemble, protégeons l'environnement de <span className="text-forest-300">Kinshasa</span>
+                Ensemble, protégeons l'environnement de <span className="text-primary-300">Kinshasa</span>
               </h1>
               <p className="mt-6 text-lg text-sand-200 leading-relaxed max-w-xl">
                 Signalez les incidents environnementaux, suivez les actions de collecte,
@@ -73,7 +73,7 @@ export function LandingPage() {
                 de nos 24 communes.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Link to="/signalements/nouveau" className="btn bg-white text-forest-700 hover:bg-sand-100 focus:ring-white">
+                <Link to="/signalements/nouveau" className="btn bg-white text-primary-700 hover:bg-sand-100 focus:ring-white">
                   <AlertTriangle className="h-4 w-4" />
                   Signaler un incident
                 </Link>
@@ -87,10 +87,10 @@ export function LandingPage() {
             {/* Hero visual stats */}
             <div className="grid grid-cols-2 gap-4 animate-fade-in-up">
               {[
-                { label: 'Signalements', value: stats.signalements, icon: AlertTriangle, color: 'from-forest-400 to-forest-600' },
-                { label: 'Résolus', value: stats.resolved, icon: ShieldCheck, color: 'from-emerald-400 to-emerald-600' },
-                { label: 'Communes', value: stats.communes, icon: MapPin, color: 'from-earth-400 to-earth-600' },
-                { label: 'Citoyens actifs', value: stats.citizens, icon: Users, color: 'from-river-400 to-river-600' },
+                { label: 'Signalements', value: stats.signalements, icon: AlertTriangle, color: 'from-primary-400 to-primary-600' },
+                { label: 'Résolus', value: stats.resolved, icon: ShieldCheck, color: 'from-primary-400 to-primary-600' },
+                { label: 'Communes', value: stats.communes, icon: MapPin, color: 'from-sage-400 to-sage-600' },
+                { label: 'Citoyens actifs', value: stats.citizens, icon: Users, color: 'from-coral-400 to-coral-600' },
               ].map((s, i) => (
                   <div key={s.label} className="rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 p-6 hover:bg-white/15 transition-colors" style={{ animationDelay: `${i * 100}ms` }}>
                   <div className={`flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br ${s.color} mb-3`}>
@@ -109,26 +109,26 @@ export function LandingPage() {
       <section className="w-full px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center mb-12">
           <h2 className="section-title">Une plateforme complète au service de l'environnement</h2>
-          <p className="mt-3 text-forest-500 max-w-2xl mx-auto">
+          <p className="mt-3 text-primary-500 max-w-2xl mx-auto">
             Des outils pour les citoyens, les collecteurs, les ONG et les autorités publiques.
           </p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {[
-            { icon: AlertTriangle, title: 'Signalement citoyen', desc: 'Signalez dépôts sauvages, inondations, érosion et pollution avec photos et géolocalisation.', color: 'bg-earth-100 text-earth-700' },
-            { icon: MapIcon, title: 'Carte interactive', desc: 'Visualisez tous les incidents et points de collecte sur une carte des 24 communes.', color: 'bg-river-100 text-river-700' },
-            { icon: Trash2, title: 'Gestion des déchets', desc: 'Suivez les points de dépôt, les tournées de collecte et les quantités traitées.', color: 'bg-forest-100 text-forest-700' },
+            { icon: AlertTriangle, title: 'Signalement citoyen', desc: 'Signalez dépôts sauvages, inondations, érosion et pollution avec photos et géolocalisation.', color: 'bg-sage-100 text-sage-700' },
+            { icon: MapIcon, title: 'Carte interactive', desc: 'Visualisez tous les incidents et points de collecte sur une carte des 24 communes.', color: 'bg-coral-100 text-coral-700' },
+            { icon: Trash2, title: 'Gestion des déchets', desc: 'Suivez les points de dépôt, les tournées de collecte et les quantités traitées.', color: 'bg-primary-100 text-primary-700' },
             { icon: BookOpen, title: 'Éducation écologique', desc: 'Articles, vidéos et campagnes pour sensibiliser la population aux enjeux.', color: 'bg-amber-100 text-amber-700' },
-            { icon: TrendingUp, title: 'Statistiques', desc: 'Indicateurs de performance environnementale par commune et dans le temps.', color: 'bg-river-100 text-river-700' },
-            { icon: Bell, title: 'Notifications', desc: 'Soyez alerté en temps réel du suivi de vos signalements et des campagnes.', color: 'bg-forest-100 text-forest-700' },
+            { icon: TrendingUp, title: 'Statistiques', desc: 'Indicateurs de performance environnementale par commune et dans le temps.', color: 'bg-coral-100 text-coral-700' },
+            { icon: Bell, title: 'Notifications', desc: 'Soyez alerté en temps réel du suivi de vos signalements et des campagnes.', color: 'bg-primary-100 text-primary-700' },
             { icon: ShieldCheck, title: 'Gouvernance', desc: 'Tableaux de bord et rapports pour les autorités publiques.', color: 'bg-red-100 text-red-700' },
           ].map((f) => (
             <div key={f.title} className="card p-6 hover:shadow-md transition-transform transition-shadow hover:-translate-y-0.5 group">
               <div className={`flex h-12 w-12 items-center justify-center rounded-xl ${f.color} mb-4 group-hover:scale-110 transition-transform`}>
                 <f.icon className="h-6 w-6" />
               </div>
-              <h3 className="font-display font-semibold text-forest-900">{f.title}</h3>
-              <p className="mt-2 text-sm text-forest-500 leading-relaxed">{f.desc}</p>
+              <h3 className="font-display font-semibold text-primary-900">{f.title}</h3>
+              <p className="mt-2 text-sm text-primary-500 leading-relaxed">{f.desc}</p>
             </div>
           ))}
         </div>
@@ -140,7 +140,7 @@ export function LandingPage() {
           <div className="flex items-center justify-between mb-8">
             <div>
               <h2 className="section-title">Derniers signalements</h2>
-              <p className="mt-2 text-forest-500">Les incidents les plus récents signalés par la communauté</p>
+              <p className="mt-2 text-primary-500">Les incidents les plus récents signalés par la communauté</p>
             </div>
             <Link to="/signalements" className="btn-ghost hidden sm:inline-flex">
               Voir tout <ArrowRight className="h-4 w-4" />
@@ -150,8 +150,8 @@ export function LandingPage() {
             <LoadingState />
           ) : recentSignalements.length === 0 ? (
             <div className="card p-12 text-center">
-              <AlertTriangle className="h-10 w-10 text-forest-300 mx-auto mb-3" />
-              <p className="text-forest-500">Aucun signalement pour le moment. Soyez le premier à agir !</p>
+              <AlertTriangle className="h-10 w-10 text-primary-300 mx-auto mb-3" />
+              <p className="text-primary-500">Aucun signalement pour le moment. Soyez le premier à agir !</p>
               <Link to="/signalements/nouveau" className="btn-primary mt-4 inline-flex">
                 Créer un signalement
               </Link>
@@ -164,17 +164,17 @@ export function LandingPage() {
                     <span className={SIGNALEMENT_STATUS_COLORS[sig.status]}>
                       {SIGNALEMENT_STATUS_LABELS[sig.status]}
                     </span>
-                    <span className="text-xs text-forest-400">{timeAgo(sig.created_at)}</span>
+                    <span className="text-xs text-primary-400">{timeAgo(sig.created_at)}</span>
                   </div>
-                  <h3 className="font-display font-semibold text-forest-900 text-sm leading-snug">{sig.title}</h3>
-                  <p className="mt-1.5 text-xs text-forest-500 line-clamp-2">{truncate(sig.description, 100)}</p>
-                  <div className="mt-3 flex items-center gap-2 text-xs text-forest-400">
+                  <h3 className="font-display font-semibold text-primary-900 text-sm leading-snug">{sig.title}</h3>
+                  <p className="mt-1.5 text-xs text-primary-500 line-clamp-2">{truncate(sig.description, 100)}</p>
+                  <div className="mt-3 flex items-center gap-2 text-xs text-primary-400">
                     <MapPin className="h-3.5 w-3.5" />
                     {sig.communes?.name ?? 'Non localisé'}
                   </div>
                   <div className="mt-3 flex items-center gap-2 text-xs">
                     <span className="badge-sand">{SIGNALEMENT_TYPE_LABELS[sig.type]}</span>
-                    <span className="flex items-center gap-1 text-forest-500"><TrendingUp className="h-3 w-3" />{sig.votes}</span>
+                    <span className="flex items-center gap-1 text-primary-500"><TrendingUp className="h-3 w-3" />{sig.votes}</span>
                   </div>
                 </Link>
               ))}
@@ -189,22 +189,22 @@ export function LandingPage() {
           {/* Top communes */}
           <div>
             <h2 className="section-title mb-2">Communes les plus performantes</h2>
-            <p className="text-forest-500 mb-6">Les communes avec le meilleur indice écologique</p>
+            <p className="text-primary-500 mb-6">Les communes avec le meilleur indice écologique</p>
             <div className="card overflow-hidden">
               {topCommunes.length === 0 ? (
-                <div className="p-8 text-center text-forest-400 text-sm">Chargement des données…</div>
+                <div className="p-8 text-center text-primary-400 text-sm">Chargement des données…</div>
               ) : (
                 topCommunes.map((c, i) => (
                   <div key={c.id} className={`flex items-center gap-4 px-5 py-4 ${i < topCommunes.length - 1 ? 'border-b border-sand-100' : ''}`}>
-                    <div className={`flex h-9 w-9 items-center justify-center rounded-lg font-display font-bold text-sm ${i === 0 ? 'bg-amber-100 text-amber-700' : i === 1 ? 'bg-sand-200 text-sand-700' : i === 2 ? 'bg-earth-100 text-earth-700' : 'bg-forest-50 text-forest-500'}`}>
+                    <div className={`flex h-9 w-9 items-center justify-center rounded-lg font-display font-bold text-sm ${i === 0 ? 'bg-amber-100 text-amber-700' : i === 1 ? 'bg-sand-200 text-sand-700' : i === 2 ? 'bg-sage-100 text-sage-700' : 'bg-primary-50 text-primary-500'}`}>
                       {i + 1}
                     </div>
                     <div className="flex-1">
-                      <p className="font-display font-semibold text-forest-900">{c.name}</p>
-                      <p className="text-xs text-forest-400">{c.population.toLocaleString('fr')} habitants</p>
+                      <p className="font-display font-semibold text-primary-900">{c.name}</p>
+                      <p className="text-xs text-primary-400">{c.population.toLocaleString('fr')} habitants</p>
                     </div>
                     <div className="text-right">
-                      <p className="font-display font-bold text-forest-700">{c.eco_score}/100</p>
+                      <p className="font-display font-bold text-primary-700">{c.eco_score}/100</p>
                       <div className="mt-1 h-1.5 w-20 rounded-full bg-sand-200 overflow-hidden">
                         <div className="h-full rounded-full gradient-forest" style={{ width: `${c.eco_score}%` }} />
                       </div>
@@ -218,13 +218,13 @@ export function LandingPage() {
           {/* Recent articles */}
           <div>
             <h2 className="section-title mb-2">Actualités & éducation</h2>
-            <p className="text-forest-500 mb-6">Articles récents pour mieux comprendre les enjeux</p>
+            <p className="text-primary-500 mb-6">Articles récents pour mieux comprendre les enjeux</p>
             {loading ? (
               <LoadingState />
             ) : recentArticles.length === 0 ? (
               <div className="card p-12 text-center">
-                <BookOpen className="h-10 w-10 text-forest-300 mx-auto mb-3" />
-                <p className="text-forest-500">Aucun article publié pour le moment.</p>
+                <BookOpen className="h-10 w-10 text-primary-300 mx-auto mb-3" />
+                <p className="text-primary-500">Aucun article publié pour le moment.</p>
               </div>
             ) : (
               <div className="space-y-4">
@@ -233,15 +233,15 @@ export function LandingPage() {
                     {a.image_url ? (
                       <img src={a.image_url} alt="" className="h-20 w-20 rounded-lg object-cover flex-shrink-0" />
                     ) : (
-                      <div className="flex h-20 w-20 items-center justify-center rounded-lg bg-forest-100 flex-shrink-0">
-                        <BookOpen className="h-8 w-8 text-forest-400" />
+                      <div className="flex h-20 w-20 items-center justify-center rounded-lg bg-primary-100 flex-shrink-0">
+                        <BookOpen className="h-8 w-8 text-primary-400" />
                       </div>
                     )}
                     <div className="min-w-0">
                       <span className="badge-forest mb-1.5">{ARTICLE_CATEGORY_LABELS[a.category]}</span>
-                      <h3 className="font-display font-semibold text-forest-900 text-sm leading-snug">{a.title}</h3>
-                      <p className="mt-1 text-xs text-forest-500 line-clamp-2">{a.excerpt ?? truncate(a.content, 120)}</p>
-                      <p className="mt-1.5 text-xs text-forest-400">{formatDate(a.created_at)}</p>
+                      <h3 className="font-display font-semibold text-primary-900 text-sm leading-snug">{a.title}</h3>
+                      <p className="mt-1 text-xs text-primary-500 line-clamp-2">{a.excerpt ?? truncate(a.content, 120)}</p>
+                      <p className="mt-1.5 text-xs text-primary-400">{formatDate(a.created_at)}</p>
                     </div>
                    </Link>
                  ))}

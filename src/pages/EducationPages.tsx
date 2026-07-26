@@ -52,13 +52,13 @@ export function EducationPage() {
       <Card className="p-4 mb-6">
         <div className="flex flex-col lg:flex-row gap-3">
           <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-forest-400" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-primary-400" />
             <input value={search} onChange={(e) => setSearch(e.target.value)} className="input pl-10" placeholder="Rechercher un article…" />
           </div>
           <div className="flex flex-wrap gap-2">
-            <button onClick={() => setCategory('all')} className={classNames('badge px-3 py-1.5', category === 'all' ? 'bg-forest-600 text-white' : 'badge-sand')}>Tous</button>
+            <button onClick={() => setCategory('all')} className={classNames('badge px-3 py-1.5', category === 'all' ? 'bg-primary-600 text-white' : 'badge-sand')}>Tous</button>
             {categories.map(([val, label]) => (
-              <button key={val} onClick={() => setCategory(val)} className={classNames('badge px-3 py-1.5', category === val ? 'bg-forest-600 text-white' : 'badge-sand')}>
+              <button key={val} onClick={() => setCategory(val)} className={classNames('badge px-3 py-1.5', category === val ? 'bg-primary-600 text-white' : 'badge-sand')}>
                 {label}
               </button>
             ))}
@@ -90,11 +90,11 @@ export function EducationPage() {
               <div className="p-5">
                 <div className="flex items-center gap-2 mb-2">
                   <span className="badge-forest">{ARTICLE_CATEGORY_LABELS[a.category]}</span>
-                  <span className="text-xs text-forest-400">{formatDate(a.created_at)}</span>
+                  <span className="text-xs text-primary-400">{formatDate(a.created_at)}</span>
                 </div>
-                <h3 className="font-display font-semibold text-forest-900 leading-snug group-hover:text-forest-700">{a.title}</h3>
-                <p className="mt-2 text-sm text-forest-500 line-clamp-2">{a.excerpt ?? truncate(a.content, 120)}</p>
-                <div className="mt-4 flex items-center justify-between text-xs text-forest-400">
+                <h3 className="font-display font-semibold text-primary-900 leading-snug group-hover:text-primary-700">{a.title}</h3>
+                <p className="mt-2 text-sm text-primary-500 line-clamp-2">{a.excerpt ?? truncate(a.content, 120)}</p>
+                <div className="mt-4 flex items-center justify-between text-xs text-primary-400">
                   <span>{a.profiles?.full_name ?? 'Anonyme'}</span>
                   <span className="flex items-center gap-1"><Eye className="h-3 w-3" />{a.views}</span>
                 </div>
@@ -134,7 +134,7 @@ export function ArticleDetailPage() {
 
   return (
     <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-8 animate-fade-in">
-      <Link to="/education" className="inline-flex items-center gap-1.5 text-sm font-medium text-forest-600 hover:text-forest-700 mb-6">
+      <Link to="/education" className="inline-flex items-center gap-1.5 text-sm font-medium text-primary-600 hover:text-primary-700 mb-6">
         <ArrowLeft className="h-4 w-4" /> Retour au centre éducatif
       </Link>
 
@@ -146,19 +146,19 @@ export function ArticleDetailPage() {
 
       <div className="flex items-center gap-3 mb-4">
         <span className="badge-forest">{ARTICLE_CATEGORY_LABELS[article.category]}</span>
-        <span className="text-sm text-forest-400">{formatDate(article.created_at)}</span>
-        <span className="flex items-center gap-1 text-sm text-forest-400"><Eye className="h-3.5 w-3.5" />{article.views} vues</span>
+        <span className="text-sm text-primary-400">{formatDate(article.created_at)}</span>
+        <span className="flex items-center gap-1 text-sm text-primary-400"><Eye className="h-3.5 w-3.5" />{article.views} vues</span>
       </div>
 
-      <h1 className="font-display text-3xl font-bold text-forest-900 mb-4 leading-tight">{article.title}</h1>
+      <h1 className="font-display text-3xl font-bold text-primary-900 mb-4 leading-tight">{article.title}</h1>
 
       <div className="flex items-center gap-3 pb-6 mb-6 border-b border-sand-200">
-        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-forest-100 text-forest-700 font-semibold">
+        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary-100 text-primary-700 font-semibold">
           {article.profiles?.full_name?.charAt(0).toUpperCase() ?? 'A'}
         </div>
         <div>
-          <p className="font-medium text-forest-900">{article.profiles?.full_name ?? 'Anonyme'}</p>
-          <p className="text-xs text-forest-400">Auteur</p>
+          <p className="font-medium text-primary-900">{article.profiles?.full_name ?? 'Anonyme'}</p>
+          <p className="text-xs text-primary-400">Auteur</p>
         </div>
       </div>
 
@@ -169,7 +169,7 @@ export function ArticleDetailPage() {
       )}
 
       <div className="prose prose-forest max-w-none">
-        <p className="text-forest-700 leading-relaxed whitespace-pre-wrap text-lg">{article.content}</p>
+        <p className="text-primary-700 leading-relaxed whitespace-pre-wrap text-lg">{article.content}</p>
       </div>
     </div>
   );
@@ -227,11 +227,11 @@ export function CampagnesPage() {
                 <div className="p-5">
                   <div className="flex items-center justify-between mb-3">
                     <span className={statusColors[c.status]}>{statusLabels[c.status]}</span>
-                    {c.status === 'active' && daysLeft > 0 && <span className="text-xs text-forest-500">{daysLeft} jours restants</span>}
+                    {c.status === 'active' && daysLeft > 0 && <span className="text-xs text-primary-500">{daysLeft} jours restants</span>}
                   </div>
-                  <h3 className="font-display font-semibold text-forest-900">{c.title}</h3>
-                  <p className="mt-2 text-sm text-forest-500 line-clamp-2">{c.description}</p>
-                  <div className="mt-4 flex flex-wrap items-center gap-3 text-xs text-forest-400">
+                  <h3 className="font-display font-semibold text-primary-900">{c.title}</h3>
+                  <p className="mt-2 text-sm text-primary-500 line-clamp-2">{c.description}</p>
+                  <div className="mt-4 flex flex-wrap items-center gap-3 text-xs text-primary-400">
                     <span className="flex items-center gap-1"><Calendar className="h-3 w-3" />{formatDate(c.start_date)} → {formatDate(c.end_date)}</span>
                     {c.communes && <span className="flex items-center gap-1"><Target className="h-3 w-3" />{c.communes.name}</span>}
                     <span className="flex items-center gap-1"><Users className="h-3 w-3" />{c.participants_count} participants</span>
@@ -280,10 +280,10 @@ export function ActualitesPage() {
                 </div>
               )}
               <div className="p-5">
-                <span className="text-xs text-forest-400">{formatDate(a.created_at)}</span>
-                <h3 className="font-display font-semibold text-forest-900 mt-1 leading-snug">{a.title}</h3>
-                <p className="mt-2 text-sm text-forest-500 line-clamp-2">{a.excerpt ?? truncate(a.content, 120)}</p>
-                <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-forest-600">Lire <ArrowRight className="h-3.5 w-3.5" /></span>
+                <span className="text-xs text-primary-400">{formatDate(a.created_at)}</span>
+                <h3 className="font-display font-semibold text-primary-900 mt-1 leading-snug">{a.title}</h3>
+                <p className="mt-2 text-sm text-primary-500 line-clamp-2">{a.excerpt ?? truncate(a.content, 120)}</p>
+                <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-primary-600">Lire <ArrowRight className="h-3.5 w-3.5" /></span>
               </div>
             </Link>
           ))}

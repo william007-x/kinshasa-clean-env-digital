@@ -19,13 +19,13 @@ body {
   }
   body {
     font-family: 'Inter', system-ui, sans-serif;
-    @apply bg-sand-50 text-forest-950;
+    @apply bg-sand-50 text-gray-700;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
   }
   ::selection {
-    @apply bg-forest-200 text-forest-900;
+    @apply bg-primary-200 text-primary-900;
   }
 }
 
@@ -34,41 +34,39 @@ body {
     @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
   }
   .btn-primary {
-    @apply btn bg-forest-600 text-white hover:bg-forest-700 focus:ring-forest-500 shadow-sm hover:shadow-md active:scale-[0.98];
+    @apply btn bg-coral-500 text-white hover:bg-coral-600 focus:ring-coral-400 shadow-sm hover:shadow-md active:scale-[0.98];
   }
   .btn-secondary {
-    @apply btn bg-[#f7f6f1] text-forest-700 border border-forest-200 hover:bg-forest-50 focus:ring-forest-500;
+    @apply btn bg-white text-primary-700 border border-primary-200 hover:bg-primary-50 focus:ring-primary-400;
   }
   .btn-ghost {
-    @apply btn text-forest-700 hover:bg-forest-50 focus:ring-forest-400;
+    @apply btn text-primary-700 hover:bg-primary-50 focus:ring-primary-400;
   }
   .btn-danger {
     @apply btn bg-red-500 text-white hover:bg-red-600 focus:ring-red-400;
   }
   .card {
-    @apply rounded-2xl bg-[#f7f6f1] border border-sand-300/60 shadow-sm;
+    @apply rounded-2xl bg-white border border-sage-200/60 shadow-sm;
   }
   .input {
-    @apply w-full rounded-xl border border-sand-300 bg-[#f7f6f1] px-4 py-2.5 text-sm text-forest-950 placeholder:text-sand-400 focus:border-forest-500 focus:ring-2 focus:ring-forest-200 focus:outline-none transition-colors;
+    @apply w-full rounded-xl border border-sage-300 bg-white px-4 py-2.5 text-sm text-gray-900 placeholder:text-sand-400 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 focus:outline-none transition-colors;
   }
   .label {
-    @apply block text-sm font-medium text-forest-800 mb-1.5;
+    @apply block text-sm font-medium text-primary-800 mb-1.5;
   }
   .badge {
     @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium;
   }
-  .badge-forest { @apply badge bg-forest-100 text-forest-700; }
-  .badge-earth { @apply badge bg-earth-100 text-earth-700; }
-  .badge-river { @apply badge bg-river-100 text-river-700; }
-  .badge-red { @apply badge bg-red-100 text-red-700; }
-  .badge-amber { @apply badge bg-amber-100 text-amber-700; }
+  .badge-primary { @apply badge bg-primary-100 text-primary-700; }
+  .badge-sage { @apply badge bg-sage-100 text-sage-700; }
+  .badge-coral { @apply badge bg-coral-100 text-coral-700; }
   .badge-sand { @apply badge bg-sand-200 text-sand-800; }
 
   .section-title {
-    @apply font-display text-2xl font-bold text-forest-900 sm:text-3xl;
+    @apply font-display text-2xl font-bold text-primary-900 sm:text-3xl;
   }
   .stat-value {
-    @apply font-display text-3xl font-extrabold text-forest-900 sm:text-4xl;
+    @apply font-display text-3xl font-extrabold text-primary-900 sm:text-4xl;
   }
 }
 
@@ -77,19 +75,19 @@ body {
   .scrollbar-hide::-webkit-scrollbar { display: none; }
   .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
   .glass {
-    @apply bg-[#f7f6f1]/90 backdrop-blur-md border border-sand-300/50;
+    @apply bg-white/80 backdrop-blur-md border border-sage-300/50;
   }
   .gradient-forest {
-    background: linear-gradient(135deg, #15803d 0%, #22c55e 100%);
+    background: linear-gradient(135deg, #3E503C 0%, #7F886A 100%);
   }
   .gradient-hero {
-    background: linear-gradient(135deg, #052e16 0%, #14532d 40%, #166534 80%, #16a34a 100%);
+    background: linear-gradient(135deg, #141712 0%, #1f241e 40%, #272f26 80%, #3E503C 100%);
   }
-  .gradient-earth {
-    background: linear-gradient(135deg, #713527 0%, #d97742 100%);
+  .gradient-coral {
+    background: linear-gradient(135deg, #FF6F3D 0%, #e05b2b 100%);
   }
   .shimmer-bg {
-    background: linear-gradient(90deg, #f5f3ea 0%, #ebe6d3 50%, #f5f3ea 100%);
+    background: linear-gradient(90deg, #F3ECDB 0%, #e4d9c5 50%, #F3ECDB 100%);
     background-size: 200% 100%;
   }
 }
@@ -101,7 +99,7 @@ body {
 }
 .leaflet-popup-content-wrapper {
   border-radius: 0.75rem;
-  box-shadow: 0 4px 24px rgba(20, 83, 45, 0.15);
+  box-shadow: 0 4px 24px rgba(62, 80, 60, 0.15);
 }
 .leaflet-popup-content {
   margin: 0.75rem 1rem;

@@ -129,14 +129,14 @@ export function StatistiquesPage() {
       <div className="grid lg:grid-cols-2 gap-6 mb-6">
         {/* Time series */}
         <Card className="p-6 lg:col-span-2">
-          <h3 className="font-display font-semibold text-forest-900 mb-4">Évolution des signalements ({period} jours)</h3>
+          <h3 className="font-display font-semibold text-primary-900 mb-4">Évolution des signalements ({period} jours)</h3>
           {timeSeries.some((d) => d.count > 0) ? (
             <ResponsiveContainer width="100%" height={300}>
               <AreaChart data={timeSeries}>
                 <defs>
                   <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#16a34a" stopOpacity={0.3} />
-                    <stop offset="95%" stopColor="#16a34a" stopOpacity={0} />
+                    <stop offset="5%" stopColor="#3E503C" stopOpacity={0.3} />
+                    <stop offset="95%" stopColor="#3E503C" stopOpacity={0} />
                   </linearGradient>
                   <linearGradient id="colorResolu" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.3} />
@@ -148,18 +148,18 @@ export function StatistiquesPage() {
                 <YAxis allowDecimals={false} tick={{ fontSize: 12, fill: '#64748b' }} />
                 <Tooltip />
                 <Legend />
-                <Area type="monotone" dataKey="count" name="Total" stroke="#16a34a" strokeWidth={2} fill="url(#colorCount)" />
+                <Area type="monotone" dataKey="count" name="Total" stroke="#3E503C" strokeWidth={2} fill="url(#colorCount)" />
                 <Area type="monotone" dataKey="resolu" name="Résolus" stroke="#3b82f6" strokeWidth={2} fill="url(#colorResolu)" />
               </AreaChart>
             </ResponsiveContainer>
           ) : (
-            <div className="py-12 text-center text-forest-400 text-sm">Pas de données pour cette période</div>
+            <div className="py-12 text-center text-primary-400 text-sm">Pas de données pour cette période</div>
           )}
         </Card>
 
         {/* By type */}
         <Card className="p-6">
-          <h3 className="font-display font-semibold text-forest-900 mb-4">Par type d'incident</h3>
+          <h3 className="font-display font-semibold text-primary-900 mb-4">Par type d'incident</h3>
           {byType.length > 0 ? (
             <div className="flex items-center gap-4">
               <ResponsiveContainer width="55%" height={220}>
@@ -175,19 +175,19 @@ export function StatistiquesPage() {
                   <div key={d.type} className="flex items-center justify-between text-sm">
                     <div className="flex items-center gap-2">
                       <span className="h-3 w-3 rounded-full" style={{ backgroundColor: TYPE_COLORS[d.type] }} />
-                      <span className="text-forest-700">{d.name}</span>
+                      <span className="text-primary-700">{d.name}</span>
                     </div>
-                    <span className="font-semibold text-forest-900">{d.value}</span>
+                    <span className="font-semibold text-primary-900">{d.value}</span>
                   </div>
                 ))}
               </div>
             </div>
-          ) : <div className="py-8 text-center text-forest-400 text-sm">Pas de données</div>}
+          ) : <div className="py-8 text-center text-primary-400 text-sm">Pas de données</div>}
         </Card>
 
         {/* By commune */}
         <Card className="p-6">
-          <h3 className="font-display font-semibold text-forest-900 mb-4">Top 10 communes</h3>
+          <h3 className="font-display font-semibold text-primary-900 mb-4">Top 10 communes</h3>
           {byCommune.length > 0 ? (
             <ResponsiveContainer width="100%" height={220}>
               <BarChart data={byCommune} layout="vertical">
@@ -195,21 +195,21 @@ export function StatistiquesPage() {
                 <XAxis type="number" tick={{ fontSize: 12, fill: '#64748b' }} />
                 <YAxis type="category" dataKey="name" tick={{ fontSize: 11, fill: '#64748b' }} width={90} />
                 <Tooltip />
-                <Bar dataKey="value" fill="#16a34a" radius={[0, 6, 6, 0]} />
+                <Bar dataKey="value" fill="#3E503C" radius={[0, 6, 6, 0]} />
               </BarChart>
             </ResponsiveContainer>
-          ) : <div className="py-8 text-center text-forest-400 text-sm">Pas de données</div>}
+          ) : <div className="py-8 text-center text-primary-400 text-sm">Pas de données</div>}
         </Card>
       </div>
 
       {/* Commune eco-scores table */}
       <Card className="overflow-hidden">
         <div className="px-6 py-4 border-b border-sand-200">
-          <h3 className="font-display font-semibold text-forest-900">Indice de salubrité par commune</h3>
+          <h3 className="font-display font-semibold text-primary-900">Indice de salubrité par commune</h3>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
-            <thead className="bg-sand-50 text-forest-500 text-xs uppercase">
+            <thead className="bg-sand-50 text-primary-500 text-xs uppercase">
               <tr>
                 <th className="px-6 py-3 text-left font-medium">Commune</th>
                 <th className="px-6 py-3 text-right font-medium">Population</th>
@@ -221,10 +221,10 @@ export function StatistiquesPage() {
             <tbody className="divide-y divide-sand-100">
                 {[...communes].sort((a, b) => b.eco_score - a.eco_score).map((c) => (
                 <tr key={c.id} className="hover:bg-sand-50">
-                  <td className="px-6 py-3 font-medium text-forest-900">{c.name}</td>
-                  <td className="px-6 py-3 text-right text-forest-600">{c.population.toLocaleString('fr')}</td>
-                  <td className="px-6 py-3 text-right text-forest-600">{Number(c.area_km2).toFixed(1)}</td>
-                  <td className="px-6 py-3 text-right font-display font-bold text-forest-700">{c.eco_score}/100</td>
+                  <td className="px-6 py-3 font-medium text-primary-900">{c.name}</td>
+                  <td className="px-6 py-3 text-right text-primary-600">{c.population.toLocaleString('fr')}</td>
+                  <td className="px-6 py-3 text-right text-primary-600">{Number(c.area_km2).toFixed(1)}</td>
+                  <td className="px-6 py-3 text-right font-display font-bold text-primary-700">{c.eco_score}/100</td>
                   <td className="px-6 py-3">
                     <div className="h-2 rounded-full bg-sand-200 overflow-hidden">
                       <div className="h-full gradient-forest" style={{ width: `${c.eco_score}%` }} />

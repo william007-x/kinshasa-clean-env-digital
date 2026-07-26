@@ -69,7 +69,7 @@ export function SignalementsListPage() {
       <Card className="p-4 mb-6">
         <div className="flex flex-col lg:flex-row gap-3">
           <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-forest-400" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-primary-400" />
             <input value={search} onChange={(e) => setSearch(e.target.value)} className="input pl-10" placeholder="Rechercher un signalement…" />
           </div>
           <select value={filterType} onChange={(e) => setFilterType(e.target.value as SignalementType | 'all')} className="input lg:w-48">
@@ -86,7 +86,7 @@ export function SignalementsListPage() {
           {user && (
             <button
               onClick={() => setShowMine(!showMine)}
-              className={classNames('btn', showMine ? 'bg-forest-600 text-white' : 'bg-[#f7f6f1] border border-sand-300 text-forest-700 hover:bg-forest-50')}
+              className={classNames('btn', showMine ? 'bg-primary-600 text-white' : 'bg-[#f7f6f1] border border-sand-300 text-primary-700 hover:bg-primary-50')}
             >
               <Filter className="h-4 w-4" />
               {showMine ? 'Mes signalements' : 'Tous'}
@@ -118,18 +118,18 @@ export function SignalementsListPage() {
                 <div className="p-5">
                   <div className="flex items-center justify-between mb-3">
                     <span className={classNames(SIGNALEMENT_STATUS_COLORS[sig.status])}>{SIGNALEMENT_STATUS_LABELS[sig.status]}</span>
-                    <span className="text-xs text-forest-400">{timeAgo(sig.created_at)}</span>
+                    <span className="text-xs text-primary-400">{timeAgo(sig.created_at)}</span>
                   </div>
                   <div className="flex items-start gap-2.5 mb-2">
-                    <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-sand-100 text-forest-600">
+                    <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-sand-100 text-primary-600">
                       <Icon className="h-4 w-4" />
                     </div>
-                    <h3 className="font-display font-semibold text-forest-900 text-sm leading-snug">{sig.title}</h3>
+                    <h3 className="font-display font-semibold text-primary-900 text-sm leading-snug">{sig.title}</h3>
                   </div>
-                  <p className="text-xs text-forest-500 line-clamp-2 mb-3">{sig.description}</p>
+                  <p className="text-xs text-primary-500 line-clamp-2 mb-3">{sig.description}</p>
                   <div className="flex items-center justify-between text-xs">
-                    <span className="flex items-center gap-1 text-forest-400"><MapPin className="h-3 w-3" />{sig.communes?.name ?? 'Non localisé'}</span>
-                    <span className="flex items-center gap-1 text-forest-500"><ThumbsUp className="h-3 w-3" />{sig.votes}</span>
+                    <span className="flex items-center gap-1 text-primary-400"><MapPin className="h-3 w-3" />{sig.communes?.name ?? 'Non localisé'}</span>
+                    <span className="flex items-center gap-1 text-primary-500"><ThumbsUp className="h-3 w-3" />{sig.votes}</span>
                   </div>
                 </div>
               </Link>
@@ -252,7 +252,7 @@ export function SignalementCreatePage() {
 
   return (
     <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 py-8 animate-fade-in">
-      <Link to="/signalements" className="inline-flex items-center gap-1.5 text-sm font-medium text-forest-600 hover:text-forest-700 mb-4">
+      <Link to="/signalements" className="inline-flex items-center gap-1.5 text-sm font-medium text-primary-600 hover:text-primary-700 mb-4">
         <ArrowLeft className="h-4 w-4" /> Retour aux signalements
       </Link>
       <PageHeader title="Nouveau signalement" subtitle="Décrivez l'incident environnemental que vous souhaitez signaler" />
@@ -274,7 +274,7 @@ export function SignalementCreatePage() {
                 return (
                   <button key={t.value} type="button" onClick={() => setType(t.value)}
                     className={classNames('flex flex-col items-center gap-1.5 rounded-xl border px-3 py-3 text-xs font-medium transition-colors',
-                      type === t.value ? 'border-forest-500 bg-forest-50 text-forest-700 ring-2 ring-forest-200' : 'border-sand-300 text-forest-600 hover:border-forest-300')}>
+                      type === t.value ? 'border-primary-500 bg-primary-50 text-primary-700 ring-2 ring-primary-200' : 'border-sand-300 text-primary-600 hover:border-primary-300')}>
                     <Icon className="h-5 w-5" />
                     {t.label}
                   </button>
@@ -317,9 +317,9 @@ export function SignalementCreatePage() {
                 </button>
               </div>
             ) : (
-              <label className="flex flex-col items-center justify-center h-32 rounded-xl border-2 border-dashed border-sand-300 cursor-pointer hover:border-forest-400 hover:bg-forest-50 transition-colors">
-                <ImageIcon className="h-8 w-8 text-forest-300 mb-2" />
-                <span className="text-sm text-forest-500">Cliquez pour ajouter une photo</span>
+              <label className="flex flex-col items-center justify-center h-32 rounded-xl border-2 border-dashed border-sand-300 cursor-pointer hover:border-primary-400 hover:bg-primary-50 transition-colors">
+                <ImageIcon className="h-8 w-8 text-primary-300 mb-2" />
+                <span className="text-sm text-primary-500">Cliquez pour ajouter une photo</span>
                 <input type="file" accept="image/*" onChange={handlePhoto} className="hidden" />
               </label>
             )}
@@ -412,7 +412,7 @@ export function SignalementDetailPage() {
 
   return (
     <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-8 animate-fade-in">
-      <Link to="/signalements" className="inline-flex items-center gap-1.5 text-sm font-medium text-forest-600 hover:text-forest-700 mb-4">
+      <Link to="/signalements" className="inline-flex items-center gap-1.5 text-sm font-medium text-primary-600 hover:text-primary-700 mb-4">
         <ArrowLeft className="h-4 w-4" /> Retour
       </Link>
 
@@ -426,26 +426,26 @@ export function SignalementDetailPage() {
         <div className="lg:col-span-2 space-y-6">
           <Card className="p-6">
             <div className="flex items-center gap-3 mb-4">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-sand-100 text-forest-700">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-sand-100 text-primary-700">
                 <Icon className="h-6 w-6" />
               </div>
               <div>
                 <span className={classNames(SIGNALEMENT_STATUS_COLORS[signalement.status])}>{SIGNALEMENT_STATUS_LABELS[signalement.status]}</span>
-                <h1 className="font-display text-2xl font-bold text-forest-900 mt-1">{signalement.title}</h1>
+                <h1 className="font-display text-2xl font-bold text-primary-900 mt-1">{signalement.title}</h1>
               </div>
             </div>
-            <div className="flex flex-wrap items-center gap-4 text-sm text-forest-500 mb-4">
+            <div className="flex flex-wrap items-center gap-4 text-sm text-primary-500 mb-4">
               <span className="badge-sand">{SIGNALEMENT_TYPE_LABELS[signalement.type]}</span>
               {signalement.communes && <span className="flex items-center gap-1"><MapPin className="h-4 w-4" />{signalement.communes.name}</span>}
               <span className="flex items-center gap-1"><Clock className="h-4 w-4" />{formatDateTime(signalement.created_at)}</span>
             </div>
-            <p className="text-forest-700 leading-relaxed whitespace-pre-wrap">{signalement.description}</p>
+            <p className="text-primary-700 leading-relaxed whitespace-pre-wrap">{signalement.description}</p>
             <div className="mt-6 pt-4 border-t border-sand-200 flex items-center justify-between">
-              <div className="text-sm text-forest-500">
-                Signalé par <span className="font-medium text-forest-700">{signalement.profiles?.full_name ?? 'Anonyme'}</span>
+              <div className="text-sm text-primary-500">
+                Signalé par <span className="font-medium text-primary-700">{signalement.profiles?.full_name ?? 'Anonyme'}</span>
               </div>
               <button onClick={handleVote} disabled={!user || voteLoading}
-                className={classNames('btn', hasVoted ? 'bg-forest-600 text-white' : 'bg-[#f7f6f1] border border-sand-300 text-forest-700 hover:bg-forest-50')}>
+                className={classNames('btn', hasVoted ? 'bg-primary-600 text-white' : 'bg-[#f7f6f1] border border-sand-300 text-primary-700 hover:bg-primary-50')}>
                 <ThumbsUp className="h-4 w-4" />
                 {signalement.votes} {hasVoted ? 'Voté' : 'Voter'}
               </button>
@@ -455,8 +455,8 @@ export function SignalementDetailPage() {
 
         <div className="space-y-4">
           <Card className="p-5">
-            <h3 className="font-display font-semibold text-forest-900 mb-3">Coordonnées GPS</h3>
-            <div className="text-sm text-forest-600 space-y-1">
+            <h3 className="font-display font-semibold text-primary-900 mb-3">Coordonnées GPS</h3>
+            <div className="text-sm text-primary-600 space-y-1">
               <p>Latitude: {signalement.latitude.toFixed(5)}</p>
               <p>Longitude: {signalement.longitude.toFixed(5)}</p>
             </div>
@@ -467,7 +467,7 @@ export function SignalementDetailPage() {
 
           {canManageStatus && (
             <Card className="p-5">
-              <h3 className="font-display font-semibold text-forest-900 mb-3">Gestion</h3>
+              <h3 className="font-display font-semibold text-primary-900 mb-3">Gestion</h3>
               <button onClick={() => { setNewStatus(signalement.status); setStatusModal(true); }} className="btn-secondary w-full mb-2">
                 Modifier le statut
               </button>

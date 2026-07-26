@@ -81,7 +81,7 @@ export function Layout({ children }: { children: ReactNode }) {
   return (
     <div className="min-h-screen flex flex-col bg-sand-50">
       {/* Header */}
-      <header className="sticky top-0 z-40 border-b border-sand-200/60 glass">
+      <header className="sticky top-0 z-40 border-b border-primary-800 bg-primary-500 backdrop-blur-md">
         <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             {/* Logo */}
@@ -94,8 +94,8 @@ export function Layout({ children }: { children: ReactNode }) {
                   />
                 </div>
               <div className="flex flex-col leading-none">
-                <span className="font-display text-lg font-extrabold text-forest-800">KinshasaEco</span>
-                <span className="text-[10px] font-medium text-forest-500 tracking-wide">PLATEFORME ÉCOLOGIQUE</span>
+                <span className="font-display text-lg font-extrabold text-white">KinshasaEco</span>
+                <span className="text-[10px] font-medium text-primary-100 tracking-wide">PLATEFORME ÉCOLOGIQUE</span>
               </div>
             </Link>
 
@@ -109,7 +109,7 @@ export function Layout({ children }: { children: ReactNode }) {
                     to={link.to}
                     className={classNames(
                       'px-3.5 py-2 rounded-lg text-sm font-medium transition-colors',
-                      active ? 'bg-forest-100 text-forest-700' : 'text-forest-600 hover:bg-forest-50 hover:text-forest-800'
+                      active ? 'bg-primary-700 text-white' : 'text-primary-100 hover:bg-primary-600 hover:text-white'
                     )}
                   >
                     {link.label}
@@ -120,10 +120,10 @@ export function Layout({ children }: { children: ReactNode }) {
                 <Link
                   key={link.to}
                   to={link.to}
-                  className={classNames(
-                    'flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm font-medium transition-colors',
-                    location.pathname.startsWith(link.to) ? 'bg-red-100 text-red-700' : 'text-red-600 hover:bg-red-50'
-                  )}
+                    className={classNames(
+                      'flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm font-medium transition-colors',
+                      location.pathname.startsWith(link.to) ? 'bg-red-900/40 text-red-100' : 'text-red-200 hover:bg-red-900/30'
+                    )}
                 >
                   <link.icon className="h-4 w-4" />
                   {link.label}
@@ -139,7 +139,7 @@ export function Layout({ children }: { children: ReactNode }) {
                   <div className="relative">
                     <button
                       onClick={() => { setNotifOpen((o) => !o); if (!notifOpen) markAllRead(); }}
-                      className="relative flex h-10 w-10 items-center justify-center rounded-xl text-forest-600 hover:bg-forest-50 transition-colors"
+                      className="relative flex h-10 w-10 items-center justify-center rounded-xl text-white hover:bg-primary-600 transition-colors"
                       aria-label="Notifications"
                     >
                       <Bell className="h-5 w-5" />
@@ -150,31 +150,31 @@ export function Layout({ children }: { children: ReactNode }) {
                       )}
                     </button>
                     {notifOpen && (
-                      <div className="absolute -right-28 sm:right-0 mt-2 w-72 sm:w-80 rounded-2xl bg-[#f7f6f1] shadow-xl border border-sand-300 animate-slide-in-right overflow-hidden">
-                        <div className="px-4 py-3 border-b border-sand-200">
-                          <p className="font-display font-semibold text-forest-900">Notifications</p>
+                      <div className="absolute -right-28 sm:right-0 mt-2 w-72 sm:w-80 rounded-2xl bg-white shadow-xl border border-sage-300 animate-slide-in-right overflow-hidden">
+                        <div className="px-4 py-3 border-b border-sage-200">
+                          <p className="font-display font-semibold text-primary-900">Notifications</p>
                         </div>
                         <div className="max-h-80 overflow-y-auto">
                           {notifications.length === 0 ? (
-                            <div className="px-4 py-8 text-center text-sm text-forest-400">
-                              <Bell className="h-6 w-6 mx-auto mb-2 text-forest-300" />
+                            <div className="px-4 py-8 text-center text-sm text-gray-400">
+                              <Bell className="h-6 w-6 mx-auto mb-2 text-gray-300" />
                               Aucune notification
                             </div>
                           ) : (
                             notifications.map((n) => (
-                              <div key={n.id} className="px-4 py-3 border-b border-sand-100 hover:bg-sand-50 transition-colors">
+                              <div key={n.id} className="px-4 py-3 border-b border-sage-100 hover:bg-sage-50 transition-colors">
                                 <div className="flex items-start gap-2">
-                                  {!n.read && <span className="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-forest-500" />}
+                                  {!n.read && <span className="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-primary-500" />}
                                   <div className={classNames(!n.read && 'pl-4 -ml-4')}>
-                                    <p className="text-sm font-medium text-forest-900">{n.title}</p>
-                                    <p className="text-xs text-forest-500 mt-0.5">{n.message}</p>
+                                    <p className="text-sm font-medium text-primary-900">{n.title}</p>
+                                    <p className="text-xs text-gray-500 mt-0.5">{n.message}</p>
                                   </div>
                                 </div>
                               </div>
                             ))
                           )}
                         </div>
-                        <Link to="/notifications" className="block px-4 py-3 text-center text-sm font-medium text-forest-600 hover:bg-forest-50">
+                        <Link to="/notifications" className="block px-4 py-3 text-center text-sm font-medium text-primary-600 hover:bg-primary-50">
                           Voir tout
                         </Link>
                       </div>
@@ -185,17 +185,17 @@ export function Layout({ children }: { children: ReactNode }) {
                   <div className="relative">
                     <button
                       onClick={() => setProfileOpen((o) => !o)}
-                      className="flex items-center gap-2 rounded-xl px-2 py-1.5 hover:bg-forest-50 transition-colors"
+                      className="flex items-center gap-2 rounded-xl px-2 py-1.5 hover:bg-primary-600 transition-colors"
                     >
-                      <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-forest-100 text-forest-700 font-semibold text-sm">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary-100 text-primary-900 font-semibold text-sm">
                         {profile?.full_name?.charAt(0).toUpperCase() ?? 'U'}
                       </div>
-                      <ChevronDown className="h-4 w-4 text-forest-400 hidden sm:block" />
+                      <ChevronDown className="h-4 w-4 text-primary-200 hidden sm:block" />
                     </button>
                     {profileOpen && (
-                      <div className="absolute right-0 mt-2 w-64 rounded-2xl bg-[#f7f6f1] shadow-xl border border-sand-300 animate-slide-in-right overflow-hidden">
-                        <div className="px-4 py-4 border-b border-sand-200">
-                          <p className="font-semibold text-forest-900">{profile?.full_name}</p>
+                      <div className="absolute right-0 mt-2 w-64 rounded-2xl bg-white shadow-xl border border-sage-300 animate-slide-in-right overflow-hidden">
+                        <div className="px-4 py-4 border-b border-sage-200">
+                          <p className="font-semibold text-primary-900">{profile?.full_name}</p>
                           <div className="mt-1.5 flex items-center gap-2">
                             <span className={classNames(ROLE_COLORS[profile?.role ?? 'citoyen'])}>
                               {ROLE_LABELS[profile?.role ?? 'citoyen']}
@@ -203,14 +203,14 @@ export function Layout({ children }: { children: ReactNode }) {
                           </div>
                         </div>
                         <div className="py-1.5">
-                          <Link to="/profile" className="flex items-center gap-3 px-4 py-2.5 text-sm text-forest-700 hover:bg-sand-50">
-                            <UserIcon className="h-4 w-4 text-forest-400" /> Mon profil
+                          <Link to="/profile" className="flex items-center gap-3 px-4 py-2.5 text-sm text-primary-700 hover:bg-sage-50">
+                            <UserIcon className="h-4 w-4 text-gray-400" /> Mon profil
                           </Link>
-                          <Link to="/dashboard" className="flex items-center gap-3 px-4 py-2.5 text-sm text-forest-700 hover:bg-sand-50">
-                            <LayoutDashboard className="h-4 w-4 text-forest-400" /> Tableau de bord
+                          <Link to="/dashboard" className="flex items-center gap-3 px-4 py-2.5 text-sm text-primary-700 hover:bg-sage-50">
+                            <LayoutDashboard className="h-4 w-4 text-gray-400" /> Tableau de bord
                           </Link>
-                          <Link to="/parametres" className="flex items-center gap-3 px-4 py-2.5 text-sm text-forest-700 hover:bg-sand-50">
-                            <Settings className="h-4 w-4 text-forest-400" /> Paramètres
+                          <Link to="/parametres" className="flex items-center gap-3 px-4 py-2.5 text-sm text-primary-700 hover:bg-sage-50">
+                            <Settings className="h-4 w-4 text-gray-400" /> Paramètres
                           </Link>
                           <button onClick={handleSignOut} className="flex w-full items-center gap-3 px-4 py-2.5 text-sm text-red-600 hover:bg-red-50">
                             <LogOut className="h-4 w-4" /> Déconnexion
@@ -230,7 +230,7 @@ export function Layout({ children }: { children: ReactNode }) {
               {/* Mobile menu button */}
               <button
                 onClick={() => setMobileOpen((o) => !o)}
-                className="lg:hidden flex h-10 w-10 items-center justify-center rounded-xl text-forest-600 hover:bg-forest-50"
+                className="lg:hidden flex h-10 w-10 items-center justify-center rounded-xl text-white hover:bg-primary-600"
                 aria-label="Menu"
               >
                 {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -241,7 +241,7 @@ export function Layout({ children }: { children: ReactNode }) {
 
         {/* Mobile Nav */}
         {mobileOpen && (
-          <nav className="lg:hidden border-t border-sand-300 bg-[#f7f6f1] animate-fade-in">
+          <nav className="lg:hidden border-t border-primary-700 bg-primary-800 animate-fade-in">
             <div className="px-4 py-3 space-y-1 max-h-[80vh] overflow-y-auto">
               {visibleNavLinks.map((link) => {
                 const active = location.pathname === link.to || (link.to !== '/' && location.pathname.startsWith(link.to));
@@ -251,7 +251,7 @@ export function Layout({ children }: { children: ReactNode }) {
                     to={link.to}
                     className={classNames(
                       'flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium',
-                      active ? 'bg-forest-100 text-forest-700' : 'text-forest-600 hover:bg-forest-50'
+                      active ? 'bg-primary-700 text-white' : 'text-primary-100 hover:bg-primary-700'
                     )}
                   >
                     <link.icon className="h-4 w-4" />
@@ -260,13 +260,13 @@ export function Layout({ children }: { children: ReactNode }) {
                 );
               })}
               {isAdmin && ADMIN_LINKS.map((link) => (
-                <Link key={link.to} to={link.to} className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-red-600 hover:bg-red-50">
+                <Link key={link.to} to={link.to} className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-red-200 hover:bg-red-900/30">
                   <link.icon className="h-4 w-4" />
                   {link.label}
                 </Link>
               ))}
               {!user && (
-                <div className="pt-3 border-t border-sand-200 flex flex-col gap-2">
+                <div className="pt-3 border-t border-sage-200 flex flex-col gap-2">
                   <Link to="/connexion" className="btn-secondary w-full">Connexion</Link>
                   <Link to="/inscription" className="btn-primary w-full">S'inscrire</Link>
                 </div>
@@ -280,7 +280,7 @@ export function Layout({ children }: { children: ReactNode }) {
       <main className="flex-1">{children}</main>
 
       {/* Footer */}
-      <footer className="border-t border-sand-200 bg-forest-950 text-sand-100">
+      <footer className="border-t border-sage-200 bg-primary-950 text-sage-100">
         <div className="w-full px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             <div>
@@ -290,40 +290,40 @@ export function Layout({ children }: { children: ReactNode }) {
                 </div>
                 <span className="font-display text-lg font-extrabold text-white">KinshasaEco</span>
               </div>
-              <p className="text-sm text-sand-300 leading-relaxed">
+              <p className="text-sm text-sage-300 leading-relaxed">
                 Plateforme collaborative pour une gestion environnementale durable de la ville de Kinshasa.
               </p>
             </div>
             <div>
               <h3 className="font-display font-semibold text-white mb-3">Plateforme</h3>
               <ul className="space-y-2 text-sm">
-                <li><Link to="/carte" className="text-sand-300 hover:text-white transition-colors">Carte interactive</Link></li>
-                <li><Link to="/signalements" className="text-sand-300 hover:text-white transition-colors">Signalements</Link></li>
-                <li><Link to="/dechets" className="text-sand-300 hover:text-white transition-colors">Gestion des déchets</Link></li>
-                 <li><Link to="/statistiques" className="text-sand-300 hover:text-white transition-colors">Statistiques</Link></li>
-               </ul>
+                <li><Link to="/carte" className="text-sage-300 hover:text-white transition-colors">Carte interactive</Link></li>
+                <li><Link to="/signalements" className="text-sage-300 hover:text-white transition-colors">Signalements</Link></li>
+                <li><Link to="/dechets" className="text-sage-300 hover:text-white transition-colors">Gestion des déchets</Link></li>
+                 <li><Link to="/statistiques" className="text-sage-300 hover:text-white transition-colors">Statistiques</Link></li>
+                </ul>
             </div>
             <div>
               <h3 className="font-display font-semibold text-white mb-3">Ressources</h3>
               <ul className="space-y-2 text-sm">
-                <li><Link to="/education" className="text-sand-300 hover:text-white transition-colors">Centre éducatif</Link></li>
-                <li><Link to="/actualites" className="text-sand-300 hover:text-white transition-colors">Actualités</Link></li>
-                <li><Link to="/aide" className="text-sand-300 hover:text-white transition-colors">Centre d'aide</Link></li>
-                <li><Link to="/a-propos" className="text-sand-300 hover:text-white transition-colors">À propos</Link></li>
-                <li><Link to="/faq" className="text-sand-300 hover:text-white transition-colors">FAQ</Link></li>
-                <li><Link to="/contact" className="text-sand-300 hover:text-white transition-colors">Contact</Link></li>
+                <li><Link to="/education" className="text-sage-300 hover:text-white transition-colors">Centre éducatif</Link></li>
+                <li><Link to="/actualites" className="text-sage-300 hover:text-white transition-colors">Actualités</Link></li>
+                <li><Link to="/aide" className="text-sage-300 hover:text-white transition-colors">Centre d'aide</Link></li>
+                <li><Link to="/a-propos" className="text-sage-300 hover:text-white transition-colors">À propos</Link></li>
+                <li><Link to="/faq" className="text-sage-300 hover:text-white transition-colors">FAQ</Link></li>
+                <li><Link to="/contact" className="text-sage-300 hover:text-white transition-colors">Contact</Link></li>
               </ul>
             </div>
             <div>
               <h3 className="font-display font-semibold text-white mb-3">Informations</h3>
               <ul className="space-y-2 text-sm">
-                <li><Link to="/mentions-legales" className="text-sand-300 hover:text-white transition-colors">Mentions légales</Link></li>
-                <li><Link to="/confidentialite" className="text-sand-300 hover:text-white transition-colors">Politique de confidentialité</Link></li>
-                <li><Link to="/conditions" className="text-sand-300 hover:text-white transition-colors">Conditions d'utilisation</Link></li>
+                <li><Link to="/mentions-legales" className="text-sage-300 hover:text-white transition-colors">Mentions légales</Link></li>
+                <li><Link to="/confidentialite" className="text-sage-300 hover:text-white transition-colors">Politique de confidentialité</Link></li>
+                <li><Link to="/conditions" className="text-sage-300 hover:text-white transition-colors">Conditions d'utilisation</Link></li>
               </ul>
             </div>
           </div>
-          <div className="mt-10 pt-8 border-t border-forest-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="mt-10 pt-8 border-t border-primary-800 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-xs text-sand-400">© 2025 KinshasaEco. Conçu pour la ville de Kinshasa, République Démocratique du Congo.</p>
             <div className="flex items-center gap-4 text-xs text-sand-400">
               <span className="flex items-center gap-1.5"><Users className="h-3.5 w-3.5" /> 24 communes couvertes</span>

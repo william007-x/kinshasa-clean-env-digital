@@ -102,8 +102,8 @@ export function CartePage() {
         <div className="lg:col-span-1 space-y-4">
           <Card className="p-5">
             <div className="flex items-center gap-2 mb-4">
-              <Filter className="h-4 w-4 text-forest-600" />
-              <h3 className="font-display font-semibold text-forest-900">Filtres</h3>
+              <Filter className="h-4 w-4 text-primary-600" />
+              <h3 className="font-display font-semibold text-primary-900">Filtres</h3>
             </div>
 
             <div className="space-y-4">
@@ -127,34 +127,34 @@ export function CartePage() {
 
           <Card className="p-5">
             <div className="flex items-center gap-2 mb-4">
-              <Layers className="h-4 w-4 text-forest-600" />
-              <h3 className="font-display font-semibold text-forest-900">Couches</h3>
+              <Layers className="h-4 w-4 text-primary-600" />
+              <h3 className="font-display font-semibold text-primary-900">Couches</h3>
             </div>
             <div className="space-y-3">
               <label className="flex items-center gap-3 cursor-pointer">
-                <input type="checkbox" checked={showSignalements} onChange={(e) => setShowSignalements(e.target.checked)} className="h-4 w-4 rounded text-forest-600 focus:ring-forest-500" />
+                <input type="checkbox" checked={showSignalements} onChange={(e) => setShowSignalements(e.target.checked)} className="h-4 w-4 rounded text-primary-600 focus:ring-primary-500" />
                 <div className="flex items-center gap-2">
-                  <AlertTriangle className="h-4 w-4 text-earth-600" />
-                  <span className="text-sm font-medium text-forest-700">Signalements ({filteredSig.length})</span>
+                  <AlertTriangle className="h-4 w-4 text-sage-600" />
+                  <span className="text-sm font-medium text-primary-700">Signalements ({filteredSig.length})</span>
                 </div>
               </label>
               <label className="flex items-center gap-3 cursor-pointer">
-                <input type="checkbox" checked={showDepots} onChange={(e) => setShowDepots(e.target.checked)} className="h-4 w-4 rounded text-forest-600 focus:ring-forest-500" />
+                <input type="checkbox" checked={showDepots} onChange={(e) => setShowDepots(e.target.checked)} className="h-4 w-4 rounded text-primary-600 focus:ring-primary-500" />
                 <div className="flex items-center gap-2">
-                  <Trash2 className="h-4 w-4 text-forest-600" />
-                  <span className="text-sm font-medium text-forest-700">Points de dépôt ({pointsDepot.length})</span>
+                  <Trash2 className="h-4 w-4 text-primary-600" />
+                  <span className="text-sm font-medium text-primary-700">Points de dépôt ({pointsDepot.length})</span>
                 </div>
               </label>
             </div>
           </Card>
 
           <Card className="p-5">
-            <h3 className="font-display font-semibold text-forest-900 mb-3">Légende</h3>
+            <h3 className="font-display font-semibold text-primary-900 mb-3">Légende</h3>
             <div className="space-y-2 text-xs">
               {Object.entries(SIGNALEMENT_TYPE_LABELS).map(([v, l]) => (
                 <div key={v} className="flex items-center gap-2">
                    <span className="h-3 w-3 rounded-full" style={{ backgroundColor: TYPE_COLORS[v as SignalementType] }} />
-                  <span className="text-forest-600">{l}</span>
+                  <span className="text-primary-600">{l}</span>
                 </div>
               ))}
             </div>
@@ -186,12 +186,12 @@ export function CartePage() {
                   <Marker key={sig.id} position={[sig.latitude, sig.longitude]} icon={getTypeIcon(sig.type)}>
                     <Popup>
                       <div className="min-w-[200px]">
-                        <p className="font-semibold text-forest-900">{sig.title}</p>
-                        <p className="text-xs text-forest-500 mt-1">{SIGNALEMENT_TYPE_LABELS[sig.type]}</p>
-                        <p className="text-xs text-forest-600 mt-2 line-clamp-2">{sig.description}</p>
+                        <p className="font-semibold text-primary-900">{sig.title}</p>
+                        <p className="text-xs text-primary-500 mt-1">{SIGNALEMENT_TYPE_LABELS[sig.type]}</p>
+                        <p className="text-xs text-primary-600 mt-2 line-clamp-2">{sig.description}</p>
                         <div className="mt-2 flex items-center gap-2">
                           <span className={classNames(SIGNALEMENT_STATUS_COLORS[sig.status])}>{SIGNALEMENT_STATUS_LABELS[sig.status]}</span>
-                          {sig.communes && <span className="text-xs text-forest-400">{sig.communes.name}</span>}
+                          {sig.communes && <span className="text-xs text-primary-400">{sig.communes.name}</span>}
                         </div>
                       </div>
                     </Popup>
@@ -204,17 +204,17 @@ export function CartePage() {
                     center={[depot.latitude, depot.longitude]}
                     radius={10}
                     pathOptions={{
-                      color: depot.status === 'plein' ? '#ef4444' : depot.status === 'hors_service' ? '#64748b' : '#16a34a',
-                      fillColor: depot.status === 'plein' ? '#ef4444' : depot.status === 'hors_service' ? '#64748b' : '#16a34a',
+                      color: depot.status === 'plein' ? '#ef4444' : depot.status === 'hors_service' ? '#64748b' : '#3E503C',
+                      fillColor: depot.status === 'plein' ? '#ef4444' : depot.status === 'hors_service' ? '#64748b' : '#3E503C',
                       fillOpacity: 0.6,
                     }}
                   >
                     <Popup>
                       <div className="min-w-[180px]">
-                        <p className="font-semibold text-forest-900">{depot.name}</p>
-                        <p className="text-xs text-forest-500 mt-1">Remplissage: {depot.current_fill_pct}%</p>
-                        <p className="text-xs text-forest-600">Capacité: {depot.capacity_m3} m³</p>
-                        {depot.communes && <p className="text-xs text-forest-400 mt-1">{depot.communes.name}</p>}
+                        <p className="font-semibold text-primary-900">{depot.name}</p>
+                        <p className="text-xs text-primary-500 mt-1">Remplissage: {depot.current_fill_pct}%</p>
+                        <p className="text-xs text-primary-600">Capacité: {depot.capacity_m3} m³</p>
+                        {depot.communes && <p className="text-xs text-primary-400 mt-1">{depot.communes.name}</p>}
                       </div>
                     </Popup>
                   </CircleMarker>

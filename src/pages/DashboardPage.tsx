@@ -29,7 +29,7 @@ const TYPE_COLORS: Record<SignalementType, string> = {
 const STATUS_COLORS_HEX: Record<SignalementStatus, string> = {
   en_attente: '#f59e0b',
   en_cours: '#3b82f6',
-  resolu: '#22c55e',
+  resolu: '#3E503C',
   rejete: '#ef4444',
 };
 
@@ -159,15 +159,15 @@ export function DashboardPage() {
                 <AreaChart data={last7Days}>
                   <defs>
                     <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#22c55e" stopOpacity={0.3} />
-                      <stop offset="95%" stopColor="#22c55e" stopOpacity={0} />
+                      <stop offset="5%" stopColor="#3E503C" stopOpacity={0.3} />
+                      <stop offset="95%" stopColor="#3E503C" stopOpacity={0} />
                     </linearGradient>
                   </defs>
                   <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" opacity={0.2} />
                   <XAxis dataKey="label" tick={{ fontSize: 12, fill: '#64748b' }} />
                   <YAxis allowDecimals={false} tick={{ fontSize: 12, fill: '#64748b' }} />
                   <Tooltip />
-                  <Area type="monotone" dataKey="count" stroke="#22c55e" strokeWidth={3} fill="url(#colorCount)" />
+                  <Area type="monotone" dataKey="count" stroke="#3E503C" strokeWidth={3} fill="url(#colorCount)" />
                 </AreaChart>
               </ResponsiveContainer>
             </div>
@@ -187,7 +187,7 @@ export function DashboardPage() {
                   <XAxis dataKey="name" tick={{ fontSize: 11, fill: '#64748b' }} />
                   <YAxis tick={{ fontSize: 12, fill: '#64748b' }} />
                   <Tooltip />
-                  <Bar dataKey="value" fill="#22c55e" radius={[4, 4, 0, 0]} />
+                  <Bar dataKey="value" fill="#3E503C" radius={[4, 4, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -201,14 +201,14 @@ export function DashboardPage() {
       <Card className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
         <div className="px-5 py-4 border-b border-gray-100 flex items-center justify-between">
           <h3 className="text-sm font-semibold text-gray-700">Mes signalements récents</h3>
-          <Link to="/signalements" className="text-sm font-medium text-forest-600 hover:text-forest-700 flex items-center gap-1">
+          <Link to="/signalements" className="text-sm font-medium text-primary-600 hover:text-primary-700 flex items-center gap-1">
             Tout voir <ArrowRight className="h-3.5 w-3.5" />
           </Link>
         </div>
         {mySignalements.length === 0 ? (
           <div className="px-5 py-12 text-center">
-            <AlertTriangle className="h-10 w-10 text-forest-300 mx-auto mb-3" />
-            <p className="text-forest-500 mb-4">Vous n'avez pas encore créé de signalement.</p>
+            <AlertTriangle className="h-10 w-10 text-primary-300 mx-auto mb-3" />
+            <p className="text-primary-500 mb-4">Vous n'avez pas encore créé de signalement.</p>
             <Link to="/signalements/nouveau" className="btn-primary inline-flex">
               <AlertTriangle className="h-4 w-4" /> Créer mon premier signalement
             </Link>
@@ -221,8 +221,8 @@ export function DashboardPage() {
                   {sig.type === 'inondation' || sig.type === 'pollution_eau' ? <Droplets className="h-5 w-5" /> : sig.type === 'depot_sauvage' ? <Trash2 className="h-5 w-5" /> : <AlertTriangle className="h-5 w-5" />}
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="font-medium text-forest-900 text-sm truncate">{sig.title}</p>
-                  <div className="flex items-center gap-3 mt-0.5 text-xs text-forest-400">
+                  <p className="font-medium text-primary-900 text-sm truncate">{sig.title}</p>
+                  <div className="flex items-center gap-3 mt-0.5 text-xs text-primary-400">
                     <span className="flex items-center gap-1"><MapPin className="h-3 w-3" />{sig.communes?.name ?? 'Non localisé'}</span>
                     <span>{timeAgo(sig.created_at)}</span>
                   </div>
