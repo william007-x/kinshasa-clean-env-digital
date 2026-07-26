@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  User, Mail, Phone, Award, Trophy, AlertTriangle,
+  User, Mail, Phone, AlertTriangle,
   Bell, Check, Shield, ChevronRight, Save,
   Eye, EyeOff, Lock,
 } from 'lucide-react';
 import { useAuth } from '../lib/auth';
 import { supabase } from '../lib/supabase';
 import {
-  ROLE_LABELS, ROLE_COLORS, LEVEL_LABELS, getLevelFromPoints,
-  type Signalement, type UserBadge, type Notification,
+  ROLE_LABELS, ROLE_COLORS,
+  type Signalement, type Notification,
 } from '../lib/supabase';
 import { PageHeader, Card, LoadingState, EmptyState, ErrorState, StatCard } from '../components/ui';
 import { classNames, timeAgo, formatDate } from '../lib/utils';
@@ -17,7 +17,6 @@ import { classNames, timeAgo, formatDate } from '../lib/utils';
 export function ProfilePage() {
   const { user, profile, refreshProfile } = useAuth();
   const [signalements, setSignalements] = useState<Signalement[]>([]);
-  const [badges, setBadges] = useState<UserBadge[]>([]);
   const [loading, setLoading] = useState(true);
   const [editing, setEditing] = useState(false);
   const [fullName, setFullName] = useState('');
@@ -29,12 +28,8 @@ export function ProfilePage() {
   useEffect(() => {
     if (!user) return;
     (async () => {
-      const [sigRes, badgeRes] = await Promise.all([
-        supabase.from('signalements').select('*, communes(name)').eq('user_id', user.id).order('created_at', { ascending: false }),
-        supabase.from('user_badges').select('*, badges(*)').eq('user_id', user.id).order('earned_at', { ascending: false }),
-      ]);
+      const sigRes = await supabase.from('signalements').select('*, communes(name)').eq('user_id', user.id).order('created_at', { ascending: false });
       setSignalements((sigRes.data as Signalement[]) ?? []);
-      setBadges((badgeRes.data as UserBadge[]) ?? []);
       setLoading(false);
     })();
   }, [user]);
@@ -59,7 +54,6 @@ export function ProfilePage() {
 
   if (loading) return <div className="mx-auto max-w-5xl px-4 py-8"><LoadingState /></div>;
 
-  const level = getLevelFromPoints(profile?.points ?? 0);
   const resolvedCount = signalements.filter((s) => s.status === 'resolu').length;
 
   return (
@@ -98,7 +92,6 @@ export function ProfilePage() {
                 <h2 className="font-display text-2xl font-bold text-forest-900">{profile?.full_name}</h2>
                 <div className="mt-2 flex flex-wrap items-center gap-2">
                   <span className={ROLE_COLORS[profile?.role ?? 'citoyen']}>{ROLE_LABELS[profile?.role ?? 'citoyen']}</span>
-                  <span className="badge-amber">{LEVEL_LABELS[level]}</span>
                 </div>
                 {profile?.bio && <p className="mt-3 text-sm text-forest-600">{profile.bio}</p>}
                 <div className="mt-3 flex flex-wrap items-center gap-4 text-sm text-forest-500">
@@ -116,37 +109,11 @@ export function ProfilePage() {
 
       {/* Stats */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-        <StatCard label="Points" value={profile?.points ?? 0} icon={<Trophy className="h-5 w-5" />} color="amber" />
         <StatCard label="Signalements" value={signalements.length} icon={<AlertTriangle className="h-5 w-5" />} color="earth" />
         <StatCard label="Résolus" value={resolvedCount} icon={<Check className="h-5 w-5" />} color="forest" />
-        <StatCard label="Badges" value={badges.length} icon={<Award className="h-5 w-5" />} color="river" />
       </div>
 
       <div className="grid lg:grid-cols-2 gap-6">
-        {/* Badges */}
-        <Card className="p-6">
-          <h3 className="font-display font-semibold text-forest-900 mb-4 flex items-center gap-2">
-            <Award className="h-5 w-5 text-amber-600" /> Mes badges
-          </h3>
-          {badges.length === 0 ? (
-            <p className="text-sm text-forest-400 py-4 text-center">Aucun badge pour le moment. Continuez à contribuer !</p>
-          ) : (
-            <div className="grid grid-cols-2 gap-3">
-              {badges.map((ub) => (
-                <div key={ub.id} className="flex items-center gap-3 p-3 rounded-xl bg-sand-50">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-forest-400 to-forest-600 text-white">
-                    <Award className="h-5 w-5" />
-                  </div>
-                  <div className="min-w-0">
-                    <p className="font-medium text-forest-900 text-sm truncate">{ub.badges?.name}</p>
-                    <p className="text-xs text-forest-400">{formatDate(ub.earned_at)}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-        </Card>
-
         {/* Recent activity */}
         <Card className="overflow-hidden">
           <div className="px-6 py-4 border-b border-sand-200">

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  Leaf, MapPin, Trash2, BookOpen, Trophy, Users, ArrowRight,
+  Leaf, MapPin, Trash2, BookOpen, Users, ArrowRight,
   AlertTriangle, TrendingUp, ShieldCheck,
   Sprout, Map as MapIcon, Bell,
 } from 'lucide-react';
@@ -119,7 +119,6 @@ export function LandingPage() {
             { icon: MapIcon, title: 'Carte interactive', desc: 'Visualisez tous les incidents et points de collecte sur une carte des 24 communes.', color: 'bg-river-100 text-river-700' },
             { icon: Trash2, title: 'Gestion des déchets', desc: 'Suivez les points de dépôt, les tournées de collecte et les quantités traitées.', color: 'bg-forest-100 text-forest-700' },
             { icon: BookOpen, title: 'Éducation écologique', desc: 'Articles, vidéos et campagnes pour sensibiliser la population aux enjeux.', color: 'bg-amber-100 text-amber-700' },
-            { icon: Trophy, title: 'Gamification', desc: 'Gagnez des points, débloquez des badges et grimpez dans le classement.', color: 'bg-earth-100 text-earth-700' },
             { icon: TrendingUp, title: 'Statistiques', desc: 'Indicateurs de performance environnementale par commune et dans le temps.', color: 'bg-river-100 text-river-700' },
             { icon: Bell, title: 'Notifications', desc: 'Soyez alerté en temps réel du suivi de vos signalements et des campagnes.', color: 'bg-forest-100 text-forest-700' },
             { icon: ShieldCheck, title: 'Gouvernance', desc: 'Tableaux de bord et rapports pour les autorités publiques.', color: 'bg-red-100 text-red-700' },
@@ -189,11 +188,11 @@ export function LandingPage() {
         <div className="grid lg:grid-cols-2 gap-10">
           {/* Top communes */}
           <div>
-            <h2 className="section-title mb-2">Classement des communes</h2>
-            <p className="text-forest-500 mb-6">Les communes les plus éco-citoyennes ce mois-ci</p>
+            <h2 className="section-title mb-2">Communes les plus performantes</h2>
+            <p className="text-forest-500 mb-6">Les communes avec le meilleur indice écologique</p>
             <div className="card overflow-hidden">
               {topCommunes.length === 0 ? (
-                <div className="p-8 text-center text-forest-400 text-sm">Chargement du classement…</div>
+                <div className="p-8 text-center text-forest-400 text-sm">Chargement des données…</div>
               ) : (
                 topCommunes.map((c, i) => (
                   <div key={c.id} className={`flex items-center gap-4 px-5 py-4 ${i < topCommunes.length - 1 ? 'border-b border-sand-100' : ''}`}>
@@ -213,9 +212,6 @@ export function LandingPage() {
                   </div>
                 ))
               )}
-              <Link to="/classement" className="block px-5 py-3 text-center text-sm font-medium text-forest-600 hover:bg-forest-50 border-t border-sand-100">
-                Voir le classement complet
-              </Link>
             </div>
           </div>
 
@@ -247,40 +243,13 @@ export function LandingPage() {
                       <p className="mt-1 text-xs text-forest-500 line-clamp-2">{a.excerpt ?? truncate(a.content, 120)}</p>
                       <p className="mt-1.5 text-xs text-forest-400">{formatDate(a.created_at)}</p>
                     </div>
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
-        </div>
-      </section>
-
-      {/* Call to action */}
-      <section className="w-full px-4 sm:px-6 lg:px-8 pb-16">
-        <div className="relative overflow-hidden rounded-3xl gradient-hero text-white p-10 sm:p-14 text-center">
-          <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(circle at 30% 70%, rgba(34,197,94,0.4) 0%, transparent 50%)' }} />
-          <div className="relative">
-            <Leaf className="h-12 w-12 mx-auto mb-4 text-forest-300" />
-            <h2 className="font-display text-3xl font-extrabold sm:text-4xl text-balance">
-              Devenez un éco-citoyen actif
-            </h2>
-            <p className="mt-4 text-sand-200 max-w-2xl mx-auto">
-              Inscrivez-vous gratuitement, signalez les problèmes environnementaux de votre quartier,
-              et gagnez des récompenses tout en améliorant votre commune.
-            </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <Link to="/inscription" className="btn bg-white text-forest-700 hover:bg-sand-100">
-                Créer un compte
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link to="/education" className="btn bg-white/10 text-white border border-white/30 hover:bg-white/20">
-                <BookOpen className="h-4 w-4" />
-                Découvrir le centre éducatif
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+                   </Link>
+                 ))}
+               </div>
+             )}
+           </div>
+         </div>
+       </section>
     </div>
   );
 }

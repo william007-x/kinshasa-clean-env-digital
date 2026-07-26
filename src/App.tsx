@@ -17,7 +17,6 @@ const EducationPage = lazy(() => import('./pages/EducationPages').then((m) => ({
 const ArticleDetailPage = lazy(() => import('./pages/EducationPages').then((m) => ({ default: m.ArticleDetailPage })));
 const CampagnesPage = lazy(() => import('./pages/EducationPages').then((m) => ({ default: m.CampagnesPage })));
 const ActualitesPage = lazy(() => import('./pages/EducationPages').then((m) => ({ default: m.ActualitesPage })));
-const ClassementPage = lazy(() => import('./pages/ClassementPage').then((m) => ({ default: m.ClassementPage })));
 const AboutPage = lazy(() => import('./pages/AboutPage').then((m) => ({ default: m.AboutPage })));
 const AdminPage = lazy(() => import('./pages/AdminPage').then((m) => ({ default: m.AdminPage })));
 const ProfilePage = lazy(() => import('./pages/ProfilePages').then((m) => ({ default: m.ProfilePage })));
@@ -62,7 +61,6 @@ function App() {
               <Route path="/campagnes" element={<CampagnesPage />} />
               <Route path="/actualites" element={<ActualitesPage />} />
               <Route path="/statistiques" element={<ProtectedRoute roles={['autorite','admin']}><StatistiquesPage /></ProtectedRoute>} />
-              <Route path="/classement" element={<ProtectedRoute><ClassementPage /></ProtectedRoute>} />
               <Route path="/signalements" element={<SignalementsListPage />} />
               <Route path="/signalements/:id" element={<SignalementDetailPage />} />
               <Route path="/aide" element={<HelpCenterPage />} />

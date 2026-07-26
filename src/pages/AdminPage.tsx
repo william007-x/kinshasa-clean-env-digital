@@ -165,10 +165,10 @@ export function AdminPage() {
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-forest-100 text-forest-700 font-semibold">
                     {u.full_name.charAt(0).toUpperCase()}
                   </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="font-medium text-forest-900 truncate">{u.full_name}</p>
-                    <p className="text-xs text-forest-400">{u.points} points · {timeAgo(u.created_at)}</p>
-                  </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="font-medium text-forest-900 truncate">{u.full_name}</p>
+                      <p className="text-xs text-forest-400">{timeAgo(u.created_at)}</p>
+                    </div>
                   <span className={ROLE_COLORS[u.role]}>{ROLE_LABELS[u.role]}</span>
                   <button onClick={() => { setEditUser(u); setEditRole(u.role); }} className="btn-ghost text-sm">
                     <Edit className="h-4 w-4" /> Rôle

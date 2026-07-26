@@ -11,9 +11,8 @@ import { supabase } from '../lib/supabase';
 const FAQ_ITEMS = [
   { q: 'Comment créer un signalement ?', a: 'Connectez-vous à votre compte, cliquez sur "Nouveau signalement" dans le menu, décrivez l\'incident, ajoutez une photo et sélectionnez votre commune. Votre signalement sera visible immédiatement par la communauté.' },
   { q: 'Qui peut voir mes signalements ?', a: 'Tous les signalements sont publics et visibles par tous les utilisateurs de la plateforme, y compris les invités non connectés. Cela permet une transparence totale sur les problèmes environnementaux.' },
-  { q: 'Comment fonctionne la gamification ?', a: 'Vous gagnez des points à chaque action positive : 10 points par signalement, 5 points par vote reçu, 50 points par campagne participée. Les points vous font progresser à travers 4 niveaux : Débutant, Citoyen Actif, Éco-Militant et Ambassadeur Vert.' },
   { q: 'Comment sont traités mes signalements ?', a: 'Après création, un signalement est en statut "En attente". Les administrateurs et autorités le valident puis le passent en "En cours" lorsqu\'une action est entreprise, puis en "Résolu" une fois le problème traité.' },
-  { q: 'Puis-je signaler un incident sans être connecté ?', a: 'Non, vous devez créer un compte pour signaler un incident. Cela garantit la traçabilité et la qualité des signalements, et permet de vous attribuer vos points et badges.' },
+  { q: 'Puis-je signaler un incident sans être connecté ?', a: 'Non, vous devez créer un compte pour signaler un incident. Cela garantit la traçabilité et la qualité des signalements.' },
   { q: 'Comment utiliser la carte interactive ?', a: 'Rendez-vous sur la page Carte. Vous y verrez tous les signalements géolocalisés et les points de dépôt. Utilisez les filtres pour affiner par type ou statut, et changez de couche de carte (standard ou satellite).' },
   { q: 'Mes données personnelles sont-elles protégées ?', a: 'Oui. Vos données sont protégées par les politiques de sécurité Supabase (Row Level Security). Seules les informations que vous publiez publiquement (signalements) sont visibles par les autres. Votre email et téléphone restent privés.' },
   { q: 'Comment devenir collecteur ?', a: 'Inscrivez-vous avec le rôle "Collecteur" ou contactez un administrateur pour faire changer votre rôle. Les collecteurs peuvent gérer les tournées, mettre à jour l\'état des points de dépôt et valider les collectes.' },
@@ -205,7 +204,7 @@ export function ConfidentialitePage() {
       <h2 className="font-display font-semibold text-forest-900">Collecte des données</h2>
       <p>Nous collectons uniquement les données nécessaires au fonctionnement de la plateforme : nom, email, commune, et les informations que vous publiez dans vos signalements.</p>
       <h2 className="font-display font-semibold text-forest-900">Utilisation des données</h2>
-      <p>Vos données servent à : (1) gérer votre compte, (2) afficher vos signalements, (3) calculer votre score éco-citoyen, (4) vous envoyer des notifications.</p>
+      <p>Vos données servent à : (1) gérer votre compte, (2) afficher vos signalements, (3) vous envoyer des notifications.</p>
       <h2 className="font-display font-semibold text-forest-900">Protection des données</h2>
       <p>Les données sont protégées par Row Level Security (RLS) au niveau de la base de données. Votre email et téléphone ne sont jamais visibles par les autres utilisateurs.</p>
       <h2 className="font-display font-semibold text-forest-900">Vos droits</h2>

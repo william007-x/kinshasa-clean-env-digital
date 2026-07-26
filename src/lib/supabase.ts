@@ -22,8 +22,6 @@ export type UserRole =
   | 'ong'
   | 'autorite';
 
-export type UserLevel = 'debutant' | 'actif' | 'militant' | 'ambassadeur';
-
 export interface Profile {
   id: string;
   full_name: string;
@@ -32,8 +30,6 @@ export interface Profile {
   commune_id: string | null;
   bio: string | null;
   phone: string | null;
-  points: number;
-  level: UserLevel;
   created_at: string;
   updated_at: string;
 }
@@ -169,30 +165,12 @@ export interface Campagne {
   communes?: Commune;
 }
 
-export interface Badge {
-  id: string;
-  name: string;
-  description: string;
-  icon: string;
-  criteria_type: 'signalements' | 'points' | 'campagnes' | 'articles' | 'votes';
-  criteria_value: number;
-  created_at: string;
-}
-
-export interface UserBadge {
-  id: string;
-  user_id: string;
-  badge_id: string;
-  earned_at: string;
-  badges?: Badge;
-}
-
 export interface Notification {
   id: string;
   user_id: string;
   title: string;
   message: string;
-  type: 'info' | 'success' | 'warning' | 'error' | 'signalement' | 'badge';
+  type: 'info' | 'success' | 'warning' | 'error' | 'signalement';
   read: boolean;
   link: string | null;
   created_at: string;
@@ -258,24 +236,3 @@ export const ARTICLE_CATEGORY_LABELS: Record<ArticleCategory, string> = {
   energie: 'Énergie',
   actualite: 'Actualité',
 };
-
-export const LEVEL_LABELS: Record<UserLevel, string> = {
-  debutant: 'Débutant',
-  actif: 'Citoyen Actif',
-  militant: 'Éco-Militant',
-  ambassadeur: 'Ambassadeur Vert',
-};
-
-export const LEVEL_THRESHOLDS: Record<UserLevel, number> = {
-  debutant: 0,
-  actif: 100,
-  militant: 500,
-  ambassadeur: 1500,
-};
-
-export function getLevelFromPoints(points: number): UserLevel {
-  if (points >= 1500) return 'ambassadeur';
-  if (points >= 500) return 'militant';
-  if (points >= 100) return 'actif';
-  return 'debutant';
-}

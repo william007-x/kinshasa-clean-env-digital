@@ -4,10 +4,10 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {
   Menu, X, Bell, User as UserIcon, LogOut, ChevronDown,
   LayoutDashboard, MapPin, Trash2, BookOpen, BarChart3, Settings,
-  Shield, Trophy, Home, FileText, HelpCircle, Users, Info,
+  Shield, Home, FileText, HelpCircle, Users, Info,
 } from 'lucide-react';
 import { useAuth } from '../lib/auth';
-import { ROLE_LABELS, ROLE_COLORS, LEVEL_LABELS } from '../lib/supabase';
+import { ROLE_LABELS, ROLE_COLORS } from '../lib/supabase';
 import type { UserRole } from '../lib/supabase';
 import { classNames } from '../lib/utils';
 import { supabase } from '../lib/supabase';
@@ -21,7 +21,6 @@ const NAV_LINKS = [
   { to: '/signalements', label: 'Signalements', icon: FileText, auth: true },
   { to: '/dechets', label: 'Déchets', icon: Trash2, auth: true },
   { to: '/statistiques', label: 'Statistiques', icon: BarChart3, roles: ['autorite','admin'] as UserRole[] },
-  { to: '/classement', label: 'Classement', icon: Trophy, auth: true },
   { to: '/a-propos', label: 'À propos', icon: Info, public: true },
 ];
 
@@ -201,9 +200,7 @@ export function Layout({ children }: { children: ReactNode }) {
                             <span className={classNames(ROLE_COLORS[profile?.role ?? 'citoyen'])}>
                               {ROLE_LABELS[profile?.role ?? 'citoyen']}
                             </span>
-                            <span className="badge-sand">{LEVEL_LABELS[profile?.level ?? 'debutant']}</span>
                           </div>
-                          <div className="mt-2 text-xs text-forest-500">{profile?.points} points éco-citoyens</div>
                         </div>
                         <div className="py-1.5">
                           <Link to="/profile" className="flex items-center gap-3 px-4 py-2.5 text-sm text-forest-700 hover:bg-sand-50">
@@ -303,9 +300,8 @@ export function Layout({ children }: { children: ReactNode }) {
                 <li><Link to="/carte" className="text-sand-300 hover:text-white transition-colors">Carte interactive</Link></li>
                 <li><Link to="/signalements" className="text-sand-300 hover:text-white transition-colors">Signalements</Link></li>
                 <li><Link to="/dechets" className="text-sand-300 hover:text-white transition-colors">Gestion des déchets</Link></li>
-                <li><Link to="/statistiques" className="text-sand-300 hover:text-white transition-colors">Statistiques</Link></li>
-                <li><Link to="/classement" className="text-sand-300 hover:text-white transition-colors">Classement</Link></li>
-              </ul>
+                 <li><Link to="/statistiques" className="text-sand-300 hover:text-white transition-colors">Statistiques</Link></li>
+               </ul>
             </div>
             <div>
               <h3 className="font-display font-semibold text-white mb-3">Ressources</h3>

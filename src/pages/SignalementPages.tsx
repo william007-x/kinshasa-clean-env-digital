@@ -247,8 +247,6 @@ export function SignalementCreatePage() {
       return;
     }
 
-    await supabase.rpc('award_points', { amount: 10 });
-
     navigate(`/signalements/${data.id}`);
   }
 

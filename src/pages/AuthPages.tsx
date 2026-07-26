@@ -60,7 +60,6 @@ function AuthShell({ title, subtitle, children, footer }: { title: string; subti
           <ul className="space-y-3 text-sand-200">
             <li className="flex items-center gap-3"><Check className="h-5 w-5 text-forest-300" /> Signalez en temps réel les incidents environnementaux</li>
             <li className="flex items-center gap-3"><Check className="h-5 w-5 text-forest-300" /> Suivez la cartographie des 24 communes</li>
-            <li className="flex items-center gap-3"><Check className="h-5 w-5 text-forest-300" /> Gagnez des badges et grimpez le classement</li>
             <li className="flex items-center gap-3"><Check className="h-5 w-5 text-forest-300" /> Accédez aux ressources éducatives</li>
           </ul>
         </div>
