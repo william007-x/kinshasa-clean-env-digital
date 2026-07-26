@@ -248,7 +248,7 @@ export function SettingsPage() {
           <h3 className="font-display font-semibold text-primary-900 mb-4 flex items-center gap-2">
             <Lock className="h-5 w-5 text-primary-600" /> Changer le mot de passe
           </h3>
-          {message && <div className="rounded-xl bg-sand-50 border-none px-4 py-3 text-sm text-primary-700 mb-4 shadow-neumorphic">{message}</div>}
+          {message && <div className="rounded-xl bg-primary-50 border border-primary-200 px-4 py-3 text-sm text-primary-700 mb-4">{message}</div>}
           {error && <ErrorState message={error} />}
           <form onSubmit={handlePasswordChange} className="space-y-4">
             <div>
