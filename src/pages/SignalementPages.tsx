@@ -109,7 +109,7 @@ export function SignalementsListPage() {
           {filtered.map((sig) => {
             const Icon = TYPE_ICONS[sig.type];
             return (
-              <Link key={sig.id} to={`/signalements/${sig.id}`} className="card overflow-hidden hover:shadow-md transition-transform transition-shadow hover:-translate-y-0.5">
+              <Link key={sig.id} to={`/signalements/${sig.id}`} className="card overflow-hidden hover:shadow-neumorphic-sm transition-transform transition-shadow hover:-translate-y-0.5">
                 {sig.photo_url && (
                   <div className="aspect-video w-full overflow-hidden bg-sand-100">
                     <img src={sig.photo_url} alt={sig.title} className="h-full w-full object-cover" loading="lazy" />

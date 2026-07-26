@@ -113,7 +113,7 @@ export function LoginPage() {
       footer={<>Pas encore de compte ? <Link to="/inscription" className="font-semibold text-primary-600 hover:text-primary-700">Créer un compte</Link></>}
     >
       <form onSubmit={handleSubmit} className="space-y-5">
-        {error && <div className="rounded-xl bg-red-50 border border-red-200 px-4 py-3 text-sm text-red-700">{error}</div>}
+        {error && <div className="rounded-xl bg-red-50 border-none px-4 py-3 text-sm text-red-700 shadow-neumorphic">{error}</div>}
         <div>
           <label className="label" htmlFor="email">Email</label>
           <div className="relative">
@@ -180,7 +180,7 @@ export function RegisterPage() {
         subtitle="Votre inscription est confirmée"
         footer={<Link to="/connexion" className="font-semibold text-primary-600">Aller à la connexion</Link>}
       >
-        <div className="rounded-2xl bg-primary-50 border border-primary-200 p-6 text-center">
+        <div className="rounded-2xl bg-sand-50 border-none p-6 text-center shadow-neumorphic">
           <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-primary-100 text-primary-600 mb-4">
             <Check className="h-7 w-7" />
           </div>
@@ -204,7 +204,7 @@ export function RegisterPage() {
       footer={<>Déjà inscrit ? <Link to="/connexion" className="font-semibold text-primary-600 hover:text-primary-700">Se connecter</Link></>}
     >
       <form onSubmit={handleSubmit} className="space-y-4">
-        {error && <div className="rounded-xl bg-red-50 border border-red-200 px-4 py-3 text-sm text-red-700">{error}</div>}
+        {error && <div className="rounded-xl bg-red-50 border-none px-4 py-3 text-sm text-red-700 shadow-neumorphic">{error}</div>}
         <div>
           <label className="label" htmlFor="fullName">Nom complet</label>
           <div className="relative">
@@ -300,7 +300,7 @@ export function ForgotPasswordPage() {
       footer={<>Retour à la <Link to="/connexion" className="font-semibold text-primary-600">connexion</Link></>}
     >
       {sent ? (
-        <div className="rounded-2xl bg-primary-50 border border-primary-200 p-6 text-center">
+        <div className="rounded-2xl bg-sand-50 border-none p-6 text-center shadow-neumorphic">
           <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-primary-100 text-primary-600 mb-4">
             <Mail className="h-7 w-7" />
           </div>
@@ -311,7 +311,7 @@ export function ForgotPasswordPage() {
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-5">
-          {error && <div className="rounded-xl bg-red-50 border border-red-200 px-4 py-3 text-sm text-red-700">{error}</div>}
+          {error && <div className="rounded-xl bg-red-50 border-none px-4 py-3 text-sm text-red-700 shadow-neumorphic">{error}</div>}
           <div>
             <label className="label" htmlFor="email">Email</label>
             <div className="relative">

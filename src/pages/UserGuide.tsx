@@ -70,7 +70,7 @@ export function UserGuidePage() {
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         {ROLES.map((r) => (
-          <Card key={r.key} className="p-5 hover:shadow-md transition-shadow">
+          <Card key={r.key} className="p-5 hover:shadow-neumorphic-sm transition-shadow">
             <div className={`flex h-10 w-10 items-center justify-center rounded-xl mb-3 ${r.color}`}>
               <r.icon className="h-5 w-5" />
             </div>

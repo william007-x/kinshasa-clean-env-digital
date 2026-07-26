@@ -113,7 +113,7 @@ export function DashboardPage() {
       {/* Charts grid - 2 colonnes équilibrées */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
         {/* Status donut chart */}
-        <Card className="bg-white rounded-xl shadow-sm border border-gray-100 p-5">
+        <Card className="p-5">
           <h3 className="text-sm font-semibold text-gray-700 mb-4">Répartition par statut</h3>
           {statusData.length > 0 ? (
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 w-full">
@@ -151,7 +151,7 @@ export function DashboardPage() {
         </Card>
 
         {/* 7-day trend area chart */}
-        <Card className="bg-white rounded-xl shadow-sm border border-gray-100 p-5">
+        <Card className="p-5">
           <h3 className="text-sm font-semibold text-gray-700 mb-4">Signalements — 7 derniers jours</h3>
           {last7Days.some((d) => d.count > 0) ? (
             <div className="h-[300px]">
@@ -177,7 +177,7 @@ export function DashboardPage() {
         </Card>
 
         {/* Type breakdown vertical bar chart */}
-        <Card className="bg-white rounded-xl shadow-sm border border-gray-100 p-5">
+        <Card className="p-5">
           <h3 className="text-sm font-semibold text-gray-700 mb-4">Répartition par type d'incident</h3>
           {typeData.length > 0 ? (
             <div className="h-[300px]">
@@ -198,7 +198,7 @@ export function DashboardPage() {
       </div>
 
       {/* Recent activity */}
-      <Card className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+      <Card className="overflow-hidden">
         <div className="px-5 py-4 border-b border-gray-100 flex items-center justify-between">
           <h3 className="text-sm font-semibold text-gray-700">Mes signalements récents</h3>
           <Link to="/signalements" className="text-sm font-medium text-primary-600 hover:text-primary-700 flex items-center gap-1">

@@ -104,7 +104,7 @@ export function AboutPage() {
         </p>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {ROLES.map((r) => (
-            <div key={r.title} className="rounded-xl border border-sand-200 p-5 hover:border-primary-300 transition-colors">
+            <div key={r.title} className="rounded-xl border-none p-5 shadow-neumorphic hover:shadow-neumorphic-sm transition-shadow">
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary-100 text-primary-600 mb-3">
                 <r.icon className="h-5 w-5" />
               </div>

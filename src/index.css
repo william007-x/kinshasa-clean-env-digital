@@ -46,7 +46,7 @@ body {
     @apply btn bg-red-500 text-white hover:bg-red-600 focus:ring-red-400;
   }
   .card {
-    @apply rounded-2xl bg-white border border-sage-200/60 shadow-sm;
+    @apply rounded-2xl bg-sand-50 border-none shadow-neumorphic transition-shadow;
   }
   .input {
     @apply w-full rounded-xl border border-sage-300 bg-white px-4 py-2.5 text-sm text-gray-900 placeholder:text-sand-400 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 focus:outline-none transition-colors;
@@ -89,6 +89,15 @@ body {
   .shimmer-bg {
     background: linear-gradient(90deg, #F3ECDB 0%, #e4d9c5 50%, #F3ECDB 100%);
     background-size: 200% 100%;
+  }
+  .shadow-neumorphic {
+    box-shadow: 8px 8px 16px rgba(180, 170, 150, 0.45), -8px -8px 16px rgba(255, 255, 255, 0.9);
+  }
+  .shadow-neumorphic-sm {
+    box-shadow: 4px 4px 8px rgba(180, 170, 150, 0.35), -4px -4px 8px rgba(255, 255, 255, 0.8);
+  }
+  .shadow-neumorphic-inset {
+    box-shadow: inset 4px 4px 8px rgba(180, 170, 150, 0.35), inset -4px -4px 8px rgba(255, 255, 255, 0.8);
   }
 }
 

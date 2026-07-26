@@ -86,7 +86,7 @@ export function Layout({ children }: { children: ReactNode }) {
           <div className="flex h-16 items-center justify-between">
             {/* Logo */}
               <Link to="/" className="flex items-center gap-2.5 group">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl overflow-hidden bg-white shadow-sm group-hover:shadow-md transition-shadow">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl overflow-hidden bg-white shadow-sm group-hover:shadow-neumorphic-sm transition-shadow">
                   <img 
                     src={logoKineco} 
                     alt="KinshasaEco Logo" 
@@ -150,8 +150,8 @@ export function Layout({ children }: { children: ReactNode }) {
                       )}
                     </button>
                     {notifOpen && (
-                      <div className="absolute -right-28 sm:right-0 mt-2 w-72 sm:w-80 rounded-2xl bg-white shadow-xl border border-sage-300 animate-slide-in-right overflow-hidden">
-                        <div className="px-4 py-3 border-b border-sage-200">
+                      <div className="absolute -right-28 sm:right-0 mt-2 w-72 sm:w-80 rounded-2xl bg-sand-50 shadow-neumorphic border-none animate-slide-in-right overflow-hidden">
+                        <div className="px-4 py-3 border-b border-sage-200/60">
                           <p className="font-display font-semibold text-primary-900">Notifications</p>
                         </div>
                         <div className="max-h-80 overflow-y-auto">
@@ -193,8 +193,8 @@ export function Layout({ children }: { children: ReactNode }) {
                       <ChevronDown className="h-4 w-4 text-primary-200 hidden sm:block" />
                     </button>
                     {profileOpen && (
-                      <div className="absolute right-0 mt-2 w-64 rounded-2xl bg-white shadow-xl border border-sage-300 animate-slide-in-right overflow-hidden">
-                        <div className="px-4 py-4 border-b border-sage-200">
+                      <div className="absolute right-0 mt-2 w-64 rounded-2xl bg-sand-50 shadow-neumorphic border-none animate-slide-in-right overflow-hidden">
+                        <div className="px-4 py-4 border-b border-sage-200/60">
                           <p className="font-semibold text-primary-900">{profile?.full_name}</p>
                           <div className="mt-1.5 flex items-center gap-2">
                             <span className={classNames(ROLE_COLORS[profile?.role ?? 'citoyen'])}>

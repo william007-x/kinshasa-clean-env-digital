@@ -28,7 +28,7 @@ export function EmptyState({ icon, title, description, action }: { icon?: ReactN
 
 export function ErrorState({ message }: { message: string }) {
   return (
-    <div className="rounded-xl bg-red-50 border border-red-200 px-4 py-3 text-sm text-red-700">
+    <div className="rounded-xl bg-red-50 border-none px-4 py-3 text-sm text-red-700 shadow-neumorphic">
       {message}
     </div>
   );
