@@ -116,8 +116,8 @@ export function DashboardPage() {
         <Card className="bg-white rounded-xl shadow-sm border border-gray-100 p-5">
           <h3 className="text-sm font-semibold text-gray-700 mb-4">Répartition par statut</h3>
           {statusData.length > 0 ? (
-            <div className="flex flex-row items-center justify-center gap-8 h-full w-full">
-              <div className="relative h-[220px] w-[220px] flex-shrink-0">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 w-full">
+              <div className="relative w-[200px] h-[200px] sm:w-[220px] sm:h-[220px] flex-shrink-0">
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
                     <Pie data={statusData} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={90} innerRadius={65} cornerRadius={6}>
@@ -131,12 +131,12 @@ export function DashboardPage() {
                   <span className="text-[28px] font-extrabold text-gray-800 leading-none">{statsByStatus.total}</span>
                 </div>
               </div>
-              <div className="flex flex-col justify-center gap-3">
+              <div className="w-full sm:w-auto flex flex-col justify-center gap-3">
                 {statusData.map((d) => {
                   const total = statusData.reduce((s, item) => s + item.value, 0);
                   const pct = total > 0 ? Math.round((d.value / total) * 100) : 0;
                   return (
-                    <div key={d.status} className="flex items-center gap-3">
+                    <div key={d.status} className="flex items-center gap-3 flex-wrap">
                       <span className="h-3 w-3 rounded-full flex-shrink-0" style={{ backgroundColor: STATUS_COLORS_HEX[d.status as SignalementStatus] }} />
                       <span className="font-medium text-sm text-gray-700">{d.name}</span>
                       <span className="bg-gray-100 px-2 py-0.5 rounded text-xs text-gray-600">{d.value} ({pct}%)</span>
@@ -146,7 +146,7 @@ export function DashboardPage() {
               </div>
             </div>
           ) : (
-            <div className="h-[220px] flex items-center justify-center text-gray-400 text-sm">Pas encore de données</div>
+            <div className="h-[200px] sm:h-[220px] flex items-center justify-center text-gray-400 text-sm">Pas encore de données</div>
           )}
         </Card>
 

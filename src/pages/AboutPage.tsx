@@ -132,16 +132,15 @@ export function AboutPage() {
 
       {/* CTA */}
       <Card className="p-8 text-center bg-gradient-to-br from-forest-50 to-sand-50">
-        <MapPin className="mx-auto h-10 w-10 text-forest-600 mb-3" />
+        <BookOpen className="mx-auto h-10 w-10 text-forest-600 mb-3" />
         <h3 className="font-display text-xl font-semibold text-forest-900">
-          Ensemble pour un Kinshasa plus propre
+          Besoin d'aide pour prendre en main la plateforme ?
         </h3>
         <p className="mt-2 text-sm text-forest-600 max-w-xl mx-auto">
-          Chaque signalement compte. Chaque action compte. Rejoignez la communauté KinshasaEco
-          et devenez acteur du changement environnemental de votre ville.
+          Consultez notre guide d'utilisation complet pour découvrir le fonctionnement de la plateforme selon votre rôle (Citoyen, Collecteur, ONG, Autorité).
         </p>
-        <Link to="/inscription" className="btn-primary mt-6 inline-flex">
-          Créer mon compte <ArrowRight className="h-4 w-4" />
+        <Link to="/guide" className="btn-primary mt-6 inline-flex">
+          Consulter le guide utilisateur <BookOpen className="h-4 w-4" />
         </Link>
       </Card>
     </div>

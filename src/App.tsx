@@ -18,6 +18,7 @@ const ArticleDetailPage = lazy(() => import('./pages/EducationPages').then((m) =
 const CampagnesPage = lazy(() => import('./pages/EducationPages').then((m) => ({ default: m.CampagnesPage })));
 const ActualitesPage = lazy(() => import('./pages/EducationPages').then((m) => ({ default: m.ActualitesPage })));
 const AboutPage = lazy(() => import('./pages/AboutPage').then((m) => ({ default: m.AboutPage })));
+const UserGuidePage = lazy(() => import('./pages/UserGuide').then((m) => ({ default: m.UserGuidePage })));
 const AdminPage = lazy(() => import('./pages/AdminPage').then((m) => ({ default: m.AdminPage })));
 const ProfilePage = lazy(() => import('./pages/ProfilePages').then((m) => ({ default: m.ProfilePage })));
 const NotificationsPage = lazy(() => import('./pages/ProfilePages').then((m) => ({ default: m.NotificationsPage })));
@@ -66,6 +67,7 @@ function App() {
               <Route path="/aide" element={<HelpCenterPage />} />
               <Route path="/faq" element={<FAQPage />} />
               <Route path="/a-propos" element={<AboutPage />} />
+              <Route path="/guide" element={<UserGuidePage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/mentions-legales" element={<MentionsLegalesPage />} />
               <Route path="/confidentialite" element={<ConfidentialitePage />} />
