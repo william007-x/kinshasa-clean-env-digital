@@ -54,17 +54,17 @@ export function LandingPage() {
   return (
     <div className="w-full max-w-none m-0 p-0 animate-fade-in">
       {/* Hero Section */}
-        <section className="relative overflow-hidden w-full h-full bg-primary-950 bg-[url('/hero.jpg')] bg-cover bg-center bg-no-repeat text-white min-h-screen">
+        <section className="relative w-full bg-primary-950 bg-[url('/hero.jpg')] bg-cover bg-center bg-no-repeat text-white md:min-h-screen">
          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/30" />
          <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(34,197,94,0.3) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(217,119,66,0.2) 0%, transparent 50%)' }} />
-           <div className="relative max-w-[1600px] mx-auto px-8 md:px-12 lg:px-16 pt-20 lg:pt-28">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="relative max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 pt-10 md:pt-16 lg:pt-28 pb-10 md:pb-16 lg:pb-28">
+            <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
             <div className="animate-fade-in-up">
                 <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium mb-6">
                 <Sprout className="h-4 w-4" />
                 Pour une Kinshasa plus verte et durable
               </div>
-              <h1 className="font-display text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl text-balance">
+              <h1 className="font-display text-3xl font-extrabold leading-tight sm:text-5xl lg:text-6xl text-balance">
                 Ensemble, protégeons l'environnement de <span className="text-primary-300">Kinshasa</span>
               </h1>
               <p className="mt-6 text-lg text-sand-200 leading-relaxed max-w-xl">
@@ -92,7 +92,7 @@ export function LandingPage() {
                 { label: 'Communes', value: stats.communes, icon: MapPin, color: 'from-sage-400 to-sage-600' },
                 { label: 'Citoyens actifs', value: stats.citizens, icon: Users, color: 'from-coral-400 to-coral-600' },
               ].map((s, i) => (
-                  <div key={s.label} className="rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 p-6 hover:bg-white/15 transition-colors" style={{ animationDelay: `${i * 100}ms` }}>
+                  <div key={s.label} className="rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 p-4 md:p-6 hover:bg-white/15 transition-colors" style={{ animationDelay: `${i * 100}ms` }}>
                   <div className={`flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br ${s.color} mb-3`}>
                     <s.icon className="h-5 w-5 text-white" />
                   </div>
