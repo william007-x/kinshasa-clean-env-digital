@@ -79,9 +79,9 @@ export function Layout({ children }: { children: ReactNode }) {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-sand-50">
+    <div className="min-h-screen flex flex-col bg-sand-50 pt-16">
       {/* Header */}
-      <header className="sticky top-0 z-40 border-b border-primary-800 bg-primary-500 backdrop-blur-md">
+      <header className="fixed top-0 left-0 right-0 z-50 border-b border-primary-800 bg-primary-500 backdrop-blur-md">
         <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             {/* Logo */}
