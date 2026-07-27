@@ -1,6 +1,7 @@
-import { type ReactNode } from 'react';
+import { type ReactNode, useEffect } from 'react';
 import { Loader2 } from 'lucide-react';
 import { classNames } from '../lib/utils';
+import { useLenis } from 'lenis/react';
 
 export function Spinner({ className }: { className?: string }) {
   return <Loader2 className={classNames('animate-spin', className)} />;
@@ -82,6 +83,14 @@ export function PageHeader({ title, subtitle, action }: { title: string; subtitl
 }
 
 export function Modal({ open, onClose, title, children, maxWidth = 'max-w-lg' }: { open: boolean; onClose: () => void; title: string; children: ReactNode; maxWidth?: string }) {
+  const lenis = useLenis();
+
+  useEffect(() => {
+    if (!open || !lenis) return;
+    lenis.stop();
+    return () => { if (lenis) lenis.start(); };
+  }, [open, lenis]);
+
   if (!open) return null;
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 animate-fade-in" onClick={onClose}>

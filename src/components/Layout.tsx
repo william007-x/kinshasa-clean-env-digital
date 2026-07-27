@@ -1,4 +1,5 @@
 import { type ReactNode, useState, useEffect } from 'react';
+import { useLenis } from 'lenis/react';
 import logoKineco from '../assets/logo-kineco.png';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {
@@ -60,6 +61,17 @@ export function Layout({ children }: { children: ReactNode }) {
     })();
   }, [user]);
 
+  const lenis = useLenis();
+
+  useEffect(() => {
+    if (!lenis) return;
+    if (notifOpen || profileOpen) {
+      lenis.stop();
+    } else {
+      lenis.start();
+    }
+  }, [notifOpen, profileOpen, lenis]);
+
   const isAdmin = profile?.role === 'admin';
   const visibleNavLinks = NAV_LINKS.filter((l) => {
     if (l.roles) return user && profile && l.roles.includes(profile.role);
@@ -81,7 +93,7 @@ export function Layout({ children }: { children: ReactNode }) {
   return (
     <div className="min-h-screen flex flex-col bg-sand-50 pt-16">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 border-b border-primary-800 bg-primary-500 backdrop-blur-md">
+      <header className="fixed top-0 left-0 right-0 z-50 border-b border-primary-800 bg-primary-500 backdrop-blur-md" style={{ isolation: 'isolate' }}>
         <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             {/* Logo */}
@@ -135,10 +147,10 @@ export function Layout({ children }: { children: ReactNode }) {
             <div className="flex items-center gap-2">
               {user ? (
                 <>
-                  {/* Notifications */}
-                  <div className="relative">
-                    <button
-                      onClick={() => { setNotifOpen((o) => !o); if (!notifOpen) markAllRead(); }}
+                   {/* Notifications */}
+                    <div className="relative">
+                       <button
+                         onClick={() => { setNotifOpen((o) => !o); if (!notifOpen) markAllRead(); }}
                       className="relative flex h-10 w-10 items-center justify-center rounded-xl text-white hover:bg-primary-600 transition-colors"
                       aria-label="Notifications"
                     >
@@ -181,10 +193,10 @@ export function Layout({ children }: { children: ReactNode }) {
                     )}
                   </div>
 
-                  {/* Profile dropdown */}
-                  <div className="relative">
-                    <button
-                      onClick={() => setProfileOpen((o) => !o)}
+                   {/* Profile dropdown */}
+                   <div className="relative">
+                       <button
+                         onClick={() => setProfileOpen((o) => !o)}
                       className="flex items-center gap-2 rounded-xl px-2 py-1.5 hover:bg-primary-600 transition-colors"
                     >
                       <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary-100 text-primary-900 font-semibold text-sm">

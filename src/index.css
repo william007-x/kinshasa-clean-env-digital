@@ -5,12 +5,15 @@
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
+  text-rendering: optimizeSpeed;
   overflow-x: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
 body {
   overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 @layer base {
@@ -90,6 +93,10 @@ body {
     background: linear-gradient(90deg, #F3ECDB 0%, #e4d9c5 50%, #F3ECDB 100%);
     background-size: 200% 100%;
   }
+  .will-change-scroll {
+    will-change: transform;
+    transform: translateZ(0);
+  }
 }
 
 /* Leaflet overrides */
@@ -104,4 +111,33 @@ body {
 .leaflet-popup-content {
   margin: 0.75rem 1rem;
   font-size: 0.875rem;
+}
+
+/* Lenis smooth scroll */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+/* Performance optimizations */
+.hero-section,
+.card {
+  contain: layout style paint;
+}
+
+.preserve-blur {
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  isolation: isolate;
 }

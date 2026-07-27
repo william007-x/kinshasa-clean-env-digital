@@ -112,7 +112,7 @@ export function SignalementsListPage() {
               <Link key={sig.id} to={`/signalements/${sig.id}`} className="card overflow-hidden hover:shadow-natural-hover transition-transform hover:-translate-y-0.5">
                 {sig.photo_url && (
                   <div className="aspect-video w-full overflow-hidden bg-sand-100">
-                    <img src={sig.photo_url} alt={sig.title} className="h-full w-full object-cover" loading="lazy" />
+                    <img src={sig.photo_url} alt={sig.title} className="h-full w-full object-cover transition-transform duration-500 ease-in-out hover:scale-110 transform-gpu" loading="lazy" />
                   </div>
                 )}
                 <div className="p-5">
