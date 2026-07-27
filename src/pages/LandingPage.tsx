@@ -92,7 +92,7 @@ export function LandingPage() {
                 { label: 'Communes', value: stats.communes, icon: MapPin, color: 'from-sage-400 to-sage-600' },
                 { label: 'Citoyens actifs', value: stats.citizens, icon: Users, color: 'from-coral-400 to-coral-600' },
               ].map((s, i) => (
-                  <div key={s.label} className="rounded-2xl bg-white/15 md:bg-white/10 preserve-blur border border-white/20 p-4 md:p-6 hover:bg-white/15 transition-colors" style={{ animationDelay: `${i * 100}ms` }}>
+                  <div key={s.label} className="rounded-2xl bg-white/10 preserve-blur border border-white/20 p-4 md:p-6 hover:bg-white/15 transition-colors" style={{ animationDelay: `${i * 100}ms` }}>
                   <div className={`flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br ${s.color} mb-3`}>
                     <s.icon className="h-5 w-5 text-white" />
                   </div>
