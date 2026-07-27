@@ -96,7 +96,7 @@ export function DechetsPage() {
             key={t.key}
             onClick={() => setTab(t.key as typeof tab)}
             className={classNames('flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors',
-              tab === t.key ? 'bg-[#f7f6f1] text-primary-700 shadow-sm' : 'text-primary-500 hover:text-primary-700')}
+              tab === t.key ? 'bg-[#f7f6f1] text-primary-700 shadow-natural' : 'text-primary-500 hover:text-primary-700')}
           >
             <t.icon className="h-4 w-4" />
             {t.label}

@@ -109,7 +109,7 @@ export function SignalementsListPage() {
           {filtered.map((sig) => {
             const Icon = TYPE_ICONS[sig.type];
             return (
-              <Link key={sig.id} to={`/signalements/${sig.id}`} className="card overflow-hidden hover:shadow-md transition-transform transition-shadow hover:-translate-y-0.5">
+              <Link key={sig.id} to={`/signalements/${sig.id}`} className="card overflow-hidden hover:shadow-natural-hover transition-transform hover:-translate-y-0.5">
                 {sig.photo_url && (
                   <div className="aspect-video w-full overflow-hidden bg-sand-100">
                     <img src={sig.photo_url} alt={sig.title} className="h-full w-full object-cover" loading="lazy" />
@@ -312,7 +312,7 @@ export function SignalementCreatePage() {
             {photoPreview ? (
               <div className="relative inline-block">
                 <img src={photoPreview} alt="Aperçu" className="h-32 w-48 rounded-xl object-cover" />
-                <button type="button" onClick={() => { setPhotoFile(null); setPhotoPreview(null); }} className="absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full bg-red-500 text-white shadow-md">
+                <button type="button" onClick={() => { setPhotoFile(null); setPhotoPreview(null); }} className="absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full bg-red-500 text-white shadow-natural">
                   <X className="h-3.5 w-3.5" />
                 </button>
               </div>

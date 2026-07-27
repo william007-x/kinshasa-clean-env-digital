@@ -86,7 +86,7 @@ export function Modal({ open, onClose, title, children, maxWidth = 'max-w-lg' }:
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 animate-fade-in" onClick={onClose}>
         <div className="absolute inset-0 bg-primary-950/40" />
-      <div className={classNames('relative w-full rounded-2xl bg-[#f7f6f1] shadow-2xl animate-scale-in', maxWidth)} onClick={(e) => e.stopPropagation()}>
+      <div className={classNames('relative w-full rounded-2xl bg-[#f7f6f1] shadow-natural-hover animate-scale-in', maxWidth)} onClick={(e) => e.stopPropagation()}>
         <div className="flex items-center justify-between border-b border-sand-200 px-6 py-4">
           <h2 className="font-display text-lg font-semibold text-primary-900">{title}</h2>
           <button onClick={onClose} className="text-primary-400 hover:text-primary-700 text-xl leading-none">×</button>

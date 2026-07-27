@@ -178,8 +178,8 @@ export function NotificationsPage() {
             {notifications.map((n) => (
               <div key={n.id} className={classNames('flex items-start gap-3 px-5 py-4', !n.read && 'bg-primary-50/50')}>
                 <div className={classNames('flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl',
-                  n.type === 'success' ? 'bg-primary-100 text-primary-600' : n.type === 'warning' ? 'bg-amber-100 text-amber-600' : n.type === 'error' ? 'bg-red-100 text-red-600' : n.type === 'badge' ? 'bg-amber-100 text-amber-600' : 'bg-coral-100 text-coral-600')}>
-                  {n.type === 'badge' ? <Award className="h-4 w-4" /> : n.type === 'signalement' ? <AlertTriangle className="h-4 w-4" /> : <Bell className="h-4 w-4" />}
+                  n.type === 'success' ? 'bg-primary-100 text-primary-600' : n.type === 'warning' ? 'bg-amber-100 text-amber-600' : n.type === 'error' ? 'bg-red-100 text-red-600' : n.type === 'signalement' ? 'bg-coral-100 text-coral-600' : 'bg-primary-100 text-primary-600')}>
+                  {n.type === 'signalement' ? <AlertTriangle className="h-4 w-4" /> : <Bell className="h-4 w-4" />}
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className={classNames('text-sm', !n.read ? 'font-semibold text-primary-900' : 'text-primary-700')}>{n.title}</p>
@@ -248,7 +248,7 @@ export function SettingsPage() {
           <h3 className="font-display font-semibold text-primary-900 mb-4 flex items-center gap-2">
             <Lock className="h-5 w-5 text-primary-600" /> Changer le mot de passe
           </h3>
-          {message && <div className="rounded-xl bg-primary-50 border border-primary-200 px-4 py-3 text-sm text-primary-700 mb-4">{message}</div>}
+          {message && <div className="rounded-xl bg-primary-50 shadow-natural px-4 py-3 text-sm text-primary-700 mb-4">{message}</div>}
           {error && <ErrorState message={error} />}
           <form onSubmit={handlePasswordChange} className="space-y-4">
             <div>

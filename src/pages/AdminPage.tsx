@@ -94,7 +94,7 @@ export function AdminPage() {
         {tabs.map((t) => (
           <button key={t.key} onClick={() => setTab(t.key)}
             className={classNames('flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors',
-              tab === t.key ? 'bg-[#f7f6f1] text-primary-700 shadow-sm' : 'text-primary-500 hover:text-primary-700')}>
+              tab === t.key ? 'bg-[#f7f6f1] text-primary-700 shadow-natural' : 'text-primary-500 hover:text-primary-700')}>
             <t.icon className="h-4 w-4" />
             {t.label}
             {t.count !== undefined && <span className="ml-1 text-xs bg-primary-100 text-primary-600 px-1.5 py-0.5 rounded-full">{t.count}</span>}

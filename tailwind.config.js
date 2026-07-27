@@ -60,6 +60,10 @@ export default {
           900: '#2d271d',
         },
       },
+      boxShadow: {
+        'natural': '0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.03)',
+        'natural-hover': '0 20px 30px -10px rgba(0, 0, 0, 0.08), 0 10px 12px -6px rgba(0, 0, 0, 0.04)',
+      },
       animation: {
         'fade-in': 'fadeIn 0.4s ease-out',
         'fade-in-up': 'fadeInUp 0.5s ease-out',

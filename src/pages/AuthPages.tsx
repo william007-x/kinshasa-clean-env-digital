@@ -180,7 +180,7 @@ export function RegisterPage() {
         subtitle="Votre inscription est confirmée"
         footer={<Link to="/connexion" className="font-semibold text-primary-600">Aller à la connexion</Link>}
       >
-        <div className="rounded-2xl bg-primary-50 border border-primary-200 p-6 text-center">
+        <div className="rounded-2xl bg-primary-50 shadow-natural p-6 text-center">
           <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-primary-100 text-primary-600 mb-4">
             <Check className="h-7 w-7" />
           </div>
@@ -300,7 +300,7 @@ export function ForgotPasswordPage() {
       footer={<>Retour à la <Link to="/connexion" className="font-semibold text-primary-600">connexion</Link></>}
     >
       {sent ? (
-        <div className="rounded-2xl bg-primary-50 border border-primary-200 p-6 text-center">
+        <div className="rounded-2xl bg-primary-50 shadow-natural p-6 text-center">
           <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-primary-100 text-primary-600 mb-4">
             <Mail className="h-7 w-7" />
           </div>

@@ -1,9 +1,8 @@
-import { Link } from 'react-router-dom';
 import {
-  Users, Recycle, BookOpen, Shield, MapPin, AlertTriangle,
-  BarChart3, ChevronRight, Search, Filter, Plus,
+  Users, Recycle, BookOpen, Shield
+  ,
 } from 'lucide-react';
-import { PageHeader, Card, EmptyState } from '../components/ui';
+import { PageHeader, Card } from '../components/ui';
 
 const ROLES = [
   {
@@ -70,7 +69,7 @@ export function UserGuidePage() {
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         {ROLES.map((r) => (
-          <Card key={r.key} className="p-5 hover:shadow-md transition-shadow">
+          <Card key={r.key} className="p-5 hover:shadow-natural-hover transition-shadow">
             <div className={`flex h-10 w-10 items-center justify-center rounded-xl mb-3 ${r.color}`}>
               <r.icon className="h-5 w-5" />
             </div>
@@ -95,7 +94,7 @@ export function UserGuidePage() {
             <div className="grid sm:grid-cols-2 gap-4">
               {role.steps.map((step, idx) => (
                 <div key={idx} className="flex gap-3 p-4 rounded-xl bg-sand-50 border border-sand-100">
-                  <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-white text-primary-700 font-display font-bold text-sm shadow-sm">
+                  <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-white text-primary-700 font-display font-bold text-sm shadow-natural">
                     {idx + 1}
                   </div>
                   <div>
