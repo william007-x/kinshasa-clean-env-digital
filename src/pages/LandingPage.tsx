@@ -72,12 +72,12 @@ export function LandingPage() {
                 éduquez-vous aux enjeux écologiques et contribuez à améliorer la salubrité
                 de nos 24 communes.
               </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Link to="/signalements/nouveau" className="btn bg-white text-primary-700 hover:bg-sand-100 focus:ring-white">
+               <div className="mt-8 flex flex-wrap gap-3">
+                <Link to="/signalements/nouveau" className="btn bg-coral-500 text-white hover:bg-coral-600 focus:ring-coral-400">
                   <AlertTriangle className="h-4 w-4" />
                   Signaler un incident
                 </Link>
-                <Link to="/carte" className="btn bg-white/10 text-white border border-white/30 hover:bg-white/20 focus:ring-white">
+                <Link to="/carte" className="btn bg-white text-primary-700 hover:bg-sand-100 focus:ring-white">
                   <MapIcon className="h-4 w-4" />
                   Explorer la carte
                 </Link>
@@ -92,7 +92,7 @@ export function LandingPage() {
                 { label: 'Communes', value: stats.communes, icon: MapPin, color: 'from-sage-400 to-sage-600' },
                 { label: 'Citoyens actifs', value: stats.citizens, icon: Users, color: 'from-coral-400 to-coral-600' },
               ].map((s, i) => (
-                  <div key={s.label} className="rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 p-4 md:p-6 hover:bg-white/15 transition-colors" style={{ animationDelay: `${i * 100}ms` }}>
+                <div key={s.label} className="rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 p-4 md:p-6 hover:bg-white/15 transition-colors" style={{ animationDelay: `${i * 100}ms` }}>
                   <div className={`flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br ${s.color} mb-3`}>
                     <s.icon className="h-5 w-5 text-white" />
                   </div>

@@ -50,10 +50,10 @@ export function AboutPage() {
               améliorer le cadre de vie et la salubrité de la capitale congolaise.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Link to="/inscription" className="btn-primary bg-white text-primary-700 hover:bg-sand-50">
+              <Link to="/inscription" className="btn-primary bg-coral-500 text-white hover:bg-coral-600 focus:ring-coral-400">
                 Rejoindre le mouvement <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link to="/carte" className="btn-ghost text-white border-white/40 hover:bg-white/10">
+              <Link to="/carte" className="btn bg-white text-primary-700 hover:bg-sand-100 focus:ring-white">
                 Explorer la carte
               </Link>
             </div>
